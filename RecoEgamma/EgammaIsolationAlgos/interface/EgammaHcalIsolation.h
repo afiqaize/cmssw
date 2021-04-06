@@ -9,6 +9,7 @@
 //*****************************************************************************
 
 //C++ includes
+#include <memory>
 #include <vector>
 #include <functional>
 
@@ -29,82 +30,48 @@ double scaleToEt(const double &eta);
 
 class EgammaHcalIsolation {
 public:
-  enum HcalDepth { AllDepths = 0, Depth1 = 1, Depth2 = 2 };
-
   //constructors
   EgammaHcalIsolation(double extRadius,
                       double intRadius,
-                      double eLowB,
-                      double eLowE,
-                      double etLowB,
-                      double etLowE,
+                      const std::array<double, 4> &eThresHB,
+                      const std::array<double, 4> &etThresHB,
+                      const std::array<double, 7> &eThresHE,
+                      const std::array<double, 7> &etThresHE,
                       edm::ESHandle<CaloGeometry> theCaloGeom,
                       const HBHERecHitCollection &mhbhe);
 
-  //destructor
-  ~EgammaHcalIsolation();
+  EgammaHcalIsolation(double extRadius,
+                      double intRadius,
+                      const std::array<double, 4> &eThresHB,
+                      const std::array<double, 4> &etThresHB,
+                      const std::array<double, 7> &eThresHE,
+                      const std::array<double, 7> &etThresHE,
+                      const CaloGeometry &caloGeometry,
+                      const HBHERecHitCollection &mhbhe);
 
-  //AllDepths
-  double getHcalESum(const reco::Candidate *c) const { return getHcalESum(c->get<reco::SuperClusterRef>().get()); }
-  double getHcalEtSum(const reco::Candidate *c) const { return getHcalEtSum(c->get<reco::SuperClusterRef>().get()); }
-  double getHcalESum(const reco::SuperCluster *sc) const { return getHcalESum(sc->position()); }
-  double getHcalEtSum(const reco::SuperCluster *sc) const { return getHcalEtSum(sc->position()); }
-  double getHcalESum(const math::XYZPoint &p) const { return getHcalESum(GlobalPoint(p.x(), p.y(), p.z())); }
-  double getHcalEtSum(const math::XYZPoint &p) const { return getHcalEtSum(GlobalPoint(p.x(), p.y(), p.z())); }
-  double getHcalESum(const GlobalPoint &pclu) const { return getHcalSum(pclu, AllDepths, &scaleToE); }
-  double getHcalEtSum(const GlobalPoint &pclu) const { return getHcalSum(pclu, AllDepths, &scaleToEt); }
-
-  //Depth1
-  double getHcalESumDepth1(const reco::Candidate *c) const {
-    return getHcalESumDepth1(c->get<reco::SuperClusterRef>().get());
-  }
-  double getHcalEtSumDepth1(const reco::Candidate *c) const {
-    return getHcalEtSumDepth1(c->get<reco::SuperClusterRef>().get());
-  }
-  double getHcalESumDepth1(const reco::SuperCluster *sc) const { return getHcalESumDepth1(sc->position()); }
-  double getHcalEtSumDepth1(const reco::SuperCluster *sc) const { return getHcalEtSumDepth1(sc->position()); }
-  double getHcalESumDepth1(const math::XYZPoint &p) const {
-    return getHcalESumDepth1(GlobalPoint(p.x(), p.y(), p.z()));
-  }
-  double getHcalEtSumDepth1(const math::XYZPoint &p) const {
-    return getHcalEtSumDepth1(GlobalPoint(p.x(), p.y(), p.z()));
-  }
-  double getHcalESumDepth1(const GlobalPoint &pclu) const { return getHcalSum(pclu, Depth1, &scaleToE); }
-  double getHcalEtSumDepth1(const GlobalPoint &pclu) const { return getHcalSum(pclu, Depth1, &scaleToEt); }
-
-  //Depth2
-  double getHcalESumDepth2(const reco::Candidate *c) const {
-    return getHcalESumDepth2(c->get<reco::SuperClusterRef>().get());
-  }
-  double getHcalEtSumDepth2(const reco::Candidate *c) const {
-    return getHcalEtSumDepth2(c->get<reco::SuperClusterRef>().get());
-  }
-  double getHcalESumDepth2(const reco::SuperCluster *sc) const { return getHcalESumDepth2(sc->position()); }
-  double getHcalEtSumDepth2(const reco::SuperCluster *sc) const { return getHcalEtSumDepth2(sc->position()); }
-  double getHcalESumDepth2(const math::XYZPoint &p) const {
-    return getHcalESumDepth2(GlobalPoint(p.x(), p.y(), p.z()));
-  }
-  double getHcalEtSumDepth2(const math::XYZPoint &p) const {
-    return getHcalEtSumDepth2(GlobalPoint(p.x(), p.y(), p.z()));
-  }
-  double getHcalESumDepth2(const GlobalPoint &pclu) const { return getHcalSum(pclu, Depth2, &scaleToE); }
-  double getHcalEtSumDepth2(const GlobalPoint &pclu) const { return getHcalSum(pclu, Depth2, &scaleToEt); }
+  double getHcalESum(const reco::Candidate *c, int depth = 0) const { return getHcalESum(c->get<reco::SuperClusterRef>().get(), depth); }
+  double getHcalEtSum(const reco::Candidate *c, int depth = 0) const { return getHcalEtSum(c->get<reco::SuperClusterRef>().get(), depth); }
+  double getHcalESum(const reco::SuperCluster *sc, int depth = 0) const { return getHcalESum(sc->position(), depth); }
+  double getHcalEtSum(const reco::SuperCluster *sc, int depth = 0) const { return getHcalEtSum(sc->position(), depth); }
+  double getHcalESum(const math::XYZPoint &p, int depth = 0) const { return getHcalESum(GlobalPoint(p.x(), p.y(), p.z()), depth); }
+  double getHcalEtSum(const math::XYZPoint &p, int depth = 0) const { return getHcalEtSum(GlobalPoint(p.x(), p.y(), p.z()), depth); }
+  double getHcalESum(const GlobalPoint &pclu, int depth = 0) const { return getHcalSum(pclu, depth, &scaleToE); }
+  double getHcalEtSum(const GlobalPoint &pclu, int depth = 0) const { return getHcalSum(pclu, depth, &scaleToEt); }
 
 private:
-  bool isDepth2(const DetId &) const;
-  double getHcalSum(const GlobalPoint &, const HcalDepth &, double (*)(const double &)) const;
+  double getHcalSum(const GlobalPoint &pclu, int depth, double (*scale)(const double &)) const;
 
   double extRadius_;
   double intRadius_;
-  double eLowB_;
-  double eLowE_;
-  double etLowB_;
-  double etLowE_;
+  std::array<double, 4> eThresHB_;
+  std::array<double, 4> etThresHB_;
+  std::array<double, 7> eThresHE_;
+  std::array<double, 7> etThresHE_;
 
-  edm::ESHandle<CaloGeometry> theCaloGeom_;
+  const CaloGeometry &caloGeometry_;
   const HBHERecHitCollection &mhbhe_;
 
-  CaloDualConeSelector<HBHERecHit> *doubleConeSel_;
+  std::unique_ptr<CaloDualConeSelector<HBHERecHit>> doubleConeSel_;
 };
 
 #endif

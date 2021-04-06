@@ -5,10 +5,6 @@
 // Institute: IIHE-VUB
 //=============================================================================
 //*****************************************************************************
-//C++ includes
-#include <vector>
-#include <functional>
-
 //ROOT includes
 #include <Math/VectorUtil.h>
 
@@ -26,69 +22,68 @@ double scaleToEt(const double& eta) { return sin(2 * atan(exp(-eta))); }
 
 EgammaHcalIsolation::EgammaHcalIsolation(double extRadius,
                                          double intRadius,
-                                         double eLowB,
-                                         double eLowE,
-                                         double etLowB,
-                                         double etLowE,
+                                         const std::array<double, 4> &eThresHB,
+                                         const std::array<double, 4> &etThresHB,
+                                         const std::array<double, 7> &eThresHE,
+                                         const std::array<double, 7> &etThresHE,
                                          edm::ESHandle<CaloGeometry> theCaloGeom,
-                                         const HBHERecHitCollection& mhbhe)
-    : extRadius_(extRadius),
-      intRadius_(intRadius),
-      eLowB_(eLowB),
-      eLowE_(eLowE),
-      etLowB_(etLowB),
-      etLowE_(etLowE),
-      theCaloGeom_(theCaloGeom),
-      mhbhe_(mhbhe) {
-  //set up the geometry and selector
-  const CaloGeometry* caloGeom = theCaloGeom_.product();
-  doubleConeSel_ = new CaloDualConeSelector<HBHERecHit>(intRadius_, extRadius_, caloGeom, DetId::Hcal);
+                                         const HBHERecHitCollection& mhbhe) : extRadius_(extRadius),
+                                                                              intRadius_(intRadius),
+                                                                              caloGeometry_(*theCaloGeom.product()),
+                                                                              mhbhe_(mhbhe)
+{
+  eThresHB_ = eThresHB;
+  etThresHB_ = etThresHB;
+  eThresHE_ = eThresHE;
+  etThresHE_ = etThresHE;
+
+  // set up the geometry and selector
+  doubleConeSel_ = std::make_unique<CaloDualConeSelector<HBHERecHit>>(intRadius_, extRadius_, &caloGeometry_, DetId::Hcal);
 }
 
-EgammaHcalIsolation::~EgammaHcalIsolation() { delete doubleConeSel_; }
+EgammaHcalIsolation::EgammaHcalIsolation(double extRadius,
+                                         double intRadius,
+                                         const std::array<double, 4> &eThresHB,
+                                         const std::array<double, 4> &etThresHB,
+                                         const std::array<double, 7> &eThresHE,
+                                         const std::array<double, 7> &etThresHE,
+                                         const CaloGeometry &caloGeometry,
+                                         const HBHERecHitCollection& mhbhe) : extRadius_(extRadius),
+                                                                              intRadius_(intRadius),
+                                                                              caloGeometry_(caloGeometry),
+                                                                              mhbhe_(mhbhe)
+{
+  eThresHB_ = eThresHB;
+  etThresHB_ = etThresHB;
+  eThresHE_ = eThresHE;
+  etThresHE_ = etThresHE;
+
+  // set up the geometry and selector
+  doubleConeSel_ = std::make_unique<CaloDualConeSelector<HBHERecHit>>(intRadius_, extRadius_, &caloGeometry_, DetId::Hcal);
+}
 
 double EgammaHcalIsolation::getHcalSum(const GlobalPoint& pclu,
-                                       const HcalDepth& depth,
+                                       int depth,
                                        double (*scale)(const double&)) const {
   double sum = 0.;
   if (!mhbhe_.empty()) {
-    //Compute the HCAL energy behind ECAL
-    doubleConeSel_->selectCallback(pclu, mhbhe_, [this, &sum, &depth, &scale](const HBHERecHit& i) {
-      double eta = theCaloGeom_.product()->getPosition(i.detid()).eta();
+    // Compute the HCAL energy behind ECAL
+    doubleConeSel_->selectCallback(pclu, mhbhe_, [this, &sum, &depth, &scale] (const HBHERecHit& i) {
+      double eta = caloGeometry_.getPosition(i.detid()).eta();
       HcalDetId hcalDetId(i.detid());
-      if (hcalDetId.subdet() == HcalBarrel &&         //Is it in the barrel?
-          i.energy() > eLowB_ &&                      //Does it pass the min energy?
-          i.energy() * scaleToEt(eta) > etLowB_ &&    //Does it pass the min et?
-          (depth == AllDepths || depth == Depth1)) {  //Are we asking for the first depth?
+      const int hd = hcalDetId.depth();
+
+      const bool right_depth = (depth == 0 or hd == depth);
+      if (!right_depth)
+        return;
+
+      const bool goodHB = hcalDetId.subdet() == HcalBarrel and i.energy() > eThresHB_[hd - 1] and i.energy() * scaleToEt(eta) > etThresHB_[hd - 1];
+      const bool goodHE = hcalDetId.subdet() == HcalEndcap and i.energy() > eThresHE_[hd - 1] and i.energy() * scaleToEt(eta) > etThresHE_[hd - 1];
+
+      if (goodHB or goodHE)
         sum += i.energy() * scale(eta);
-      }
-      if (hcalDetId.subdet() == HcalEndcap &&       //Is it in the endcap?
-          i.energy() > eLowE_ &&                    //Does it pass the min energy?
-          i.energy() * scaleToEt(eta) > etLowE_) {  //Does it pass the min et?
-        switch (depth) {                            //Which depth?
-          case AllDepths:
-            sum += i.energy() * scale(eta);
-            break;
-          case Depth1:
-            sum += (isDepth2(i.detid())) ? 0 : i.energy() * scale(eta);
-            break;
-          case Depth2:
-            sum += (isDepth2(i.detid())) ? i.energy() * scale(eta) : 0;
-            break;
-        }
-      }
     });
   }
 
   return sum;
-}
-
-bool EgammaHcalIsolation::isDepth2(const DetId& detId) const {
-  if ((HcalDetId(detId).depth() == 2 && HcalDetId(detId).ietaAbs() >= 18 && HcalDetId(detId).ietaAbs() < 27) ||
-      (HcalDetId(detId).depth() == 3 && HcalDetId(detId).ietaAbs() == 27)) {
-    return true;
-
-  } else {
-    return false;
-  }
 }
