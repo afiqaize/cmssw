@@ -20,7 +20,7 @@ private:
   //Which cuts to do?
 
   bool dophotonEcalRecHitIsolationCut_;
-  bool dophotonHcalTowerIsolationCut_;
+  bool dophotonHcalRecHitIsolationCut_;
   bool dophotonHCTrkIsolationCut_;
   bool dophotonSCTrkIsolationCut_;
   bool dophotonHCNTrkCut_;
@@ -32,8 +32,8 @@ private:
 
   double looseEMEcalIsoRelativeCutSlopeEB_;
   double looseEMEcalIsoRelativeCutOffsetEB_;
-  double looseEMHcalTowerIsolationCutSlopeEB_;
-  double looseEMHcalTowerIsolationCutOffsetEB_;
+  double looseEMHcalRecHitIsolationCutSlopeEB_;
+  double looseEMHcalRecHitIsolationCutOffsetEB_;
   double looseEMHollowConeTrkIsolationSlopeEB_;
   double looseEMHollowConeTrkIsolationOffsetEB_;
   double looseEMSolidConeTrkIsolationSlopeEB_;
@@ -47,8 +47,8 @@ private:
 
   double loosephotonEcalIsoRelativeCutSlopeEB_;
   double loosephotonEcalIsoRelativeCutOffsetEB_;
-  double loosephotonHcalTowerIsolationCutSlopeEB_;
-  double loosephotonHcalTowerIsolationCutOffsetEB_;
+  double loosephotonHcalRecHitIsolationCutSlopeEB_;
+  double loosephotonHcalRecHitIsolationCutOffsetEB_;
   double loosephotonHollowConeTrkIsolationSlopeEB_;
   double loosephotonHollowConeTrkIsolationOffsetEB_;
   double loosephotonSolidConeTrkIsolationSlopeEB_;
@@ -62,8 +62,8 @@ private:
 
   double tightphotonEcalIsoRelativeCutSlopeEB_;
   double tightphotonEcalIsoRelativeCutOffsetEB_;
-  double tightphotonHcalTowerIsolationCutSlopeEB_;
-  double tightphotonHcalTowerIsolationCutOffsetEB_;
+  double tightphotonHcalRecHitIsolationCutSlopeEB_;
+  double tightphotonHcalRecHitIsolationCutOffsetEB_;
   double tightphotonHollowConeTrkIsolationSlopeEB_;
   double tightphotonHollowConeTrkIsolationOffsetEB_;
   double tightphotonSolidConeTrkIsolationSlopeEB_;
@@ -77,8 +77,8 @@ private:
 
   double looseEMEcalIsoRelativeCutSlopeEE_;
   double looseEMEcalIsoRelativeCutOffsetEE_;
-  double looseEMHcalTowerIsolationCutSlopeEE_;
-  double looseEMHcalTowerIsolationCutOffsetEE_;
+  double looseEMHcalRecHitIsolationCutSlopeEE_;
+  double looseEMHcalRecHitIsolationCutOffsetEE_;
   double looseEMHollowConeTrkIsolationSlopeEE_;
   double looseEMHollowConeTrkIsolationOffsetEE_;
   double looseEMSolidConeTrkIsolationSlopeEE_;
@@ -92,8 +92,8 @@ private:
 
   double loosephotonEcalIsoRelativeCutSlopeEE_;
   double loosephotonEcalIsoRelativeCutOffsetEE_;
-  double loosephotonHcalTowerIsolationCutSlopeEE_;
-  double loosephotonHcalTowerIsolationCutOffsetEE_;
+  double loosephotonHcalRecHitIsolationCutSlopeEE_;
+  double loosephotonHcalRecHitIsolationCutOffsetEE_;
   double loosephotonHollowConeTrkIsolationSlopeEE_;
   double loosephotonHollowConeTrkIsolationOffsetEE_;
   double loosephotonSolidConeTrkIsolationSlopeEE_;
@@ -107,8 +107,8 @@ private:
 
   double tightphotonEcalIsoRelativeCutSlopeEE_;
   double tightphotonEcalIsoRelativeCutOffsetEE_;
-  double tightphotonHcalTowerIsolationCutSlopeEE_;
-  double tightphotonHcalTowerIsolationCutOffsetEE_;
+  double tightphotonHcalRecHitIsolationCutSlopeEE_;
+  double tightphotonHcalRecHitIsolationCutOffsetEE_;
   double tightphotonHollowConeTrkIsolationSlopeEE_;
   double tightphotonHollowConeTrkIsolationOffsetEE_;
   double tightphotonSolidConeTrkIsolationSlopeEE_;

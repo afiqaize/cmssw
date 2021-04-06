@@ -151,21 +151,21 @@ void PhotonValidatorMiniAOD::bookHistograms(DQMStore::IBooker &iBooker,
       iBooker.book1D(histname + "Barrel_miniAOD", "ecalRecHitSumEtDR04: Barrel ", etBin, etMin, 20.);
   h_ecalRecHitSumEtConeDR04_[0][2] =
       iBooker.book1D(histname + "Endcap_miniAOD", "ecalRecHitSumEtDR04: Endcap ", etBin, etMin, 20.);
-  histname = "hcalTowerSumEtConeDR04";
-  h_hcalTowerSumEtConeDR04_[0][0] =
-      iBooker.book1D(histname + "All_miniAOD", "hcalTowerSumEtConeDR04: All Ecal", etBin, etMin, 20.);
-  h_hcalTowerSumEtConeDR04_[0][1] =
-      iBooker.book1D(histname + "Barrel_miniAOD", "hcalTowerSumEtConeDR04: Barrel ", etBin, etMin, 20.);
-  h_hcalTowerSumEtConeDR04_[0][2] =
-      iBooker.book1D(histname + "Endcap_miniAOD", "hcalTowerSumEtConeDR04: Endcap ", etBin, etMin, 20.);
+  histname = "hcalRecHitSumEtConeDR04";
+  h_hcalRecHitSumEtConeDR04_[0][0] =
+      iBooker.book1D(histname + "All_miniAOD", "hcalRecHitSumEtConeDR04: All Ecal", etBin, etMin, 20.);
+  h_hcalRecHitSumEtConeDR04_[0][1] =
+      iBooker.book1D(histname + "Barrel_miniAOD", "hcalRecHitSumEtConeDR04: Barrel ", etBin, etMin, 20.);
+  h_hcalRecHitSumEtConeDR04_[0][2] =
+      iBooker.book1D(histname + "Endcap_miniAOD", "hcalRecHitSumEtConeDR04: Endcap ", etBin, etMin, 20.);
   //
-  histname = "hcalTowerBcSumEtConeDR04";
-  h_hcalTowerBcSumEtConeDR04_[0][0] =
-      iBooker.book1D(histname + "All_miniAOD", "hcalTowerBcSumEtConeDR04: All Ecal", etBin, etMin, 20.);
-  h_hcalTowerBcSumEtConeDR04_[0][1] =
-      iBooker.book1D(histname + "Barrel_miniAOD", "hcalTowerBcSumEtConeDR04: Barrel ", etBin, etMin, 20.);
-  h_hcalTowerBcSumEtConeDR04_[0][2] =
-      iBooker.book1D(histname + "Endcap_miniAOD", "hcalTowerBcSumEtConeDR04: Endcap ", etBin, etMin, 20.);
+  histname = "hcalRecHitBcSumEtConeDR04";
+  h_hcalRecHitBcSumEtConeDR04_[0][0] =
+      iBooker.book1D(histname + "All_miniAOD", "hcalRecHitBcSumEtConeDR04: All Ecal", etBin, etMin, 20.);
+  h_hcalRecHitBcSumEtConeDR04_[0][1] =
+      iBooker.book1D(histname + "Barrel_miniAOD", "hcalRecHitBcSumEtConeDR04: Barrel ", etBin, etMin, 20.);
+  h_hcalRecHitBcSumEtConeDR04_[0][2] =
+      iBooker.book1D(histname + "Endcap_miniAOD", "hcalRecHitBcSumEtConeDR04: Endcap ", etBin, etMin, 20.);
   histname = "isoTrkSolidConeDR04";
   h_isoTrkSolidConeDR04_[0][0] =
       iBooker.book1D(histname + "All_miniAOD", "isoTrkSolidConeDR04: All Ecal", etBin, etMin, etMax * 0.1);
@@ -272,8 +272,8 @@ void PhotonValidatorMiniAOD::analyze(const edm::Event &iEvent, const edm::EventS
     float hOverE = matchingPho->hadronicOverEm();
     float newhOverE = matchingPho->hadTowOverEm();
     float ecalIso = matchingPho->ecalRecHitSumEtConeDR04();
-    float hcalIso = matchingPho->hcalTowerSumEtConeDR04();
-    float newhcalIso = matchingPho->hcalTowerSumEtBcConeDR04();
+    float hcalIso = matchingPho->hcalRecHitSumEtConeDR04();
+    float newhcalIso = matchingPho->hcalRecHitSumEtBcConeDR04();
     float trkIso = matchingPho->trkSumPtSolidConeDR04();
     float nIsoTrk = matchingPho->nTrkSolidConeDR04();
     // PF related quantities
@@ -304,8 +304,8 @@ void PhotonValidatorMiniAOD::analyze(const edm::Event &iEvent, const edm::EventS
     h_newhOverE_[0][0]->Fill(newhOverE);
 
     h_ecalRecHitSumEtConeDR04_[0][0]->Fill(ecalIso);
-    h_hcalTowerSumEtConeDR04_[0][0]->Fill(hcalIso);
-    h_hcalTowerBcSumEtConeDR04_[0][0]->Fill(newhcalIso);
+    h_hcalRecHitSumEtConeDR04_[0][0]->Fill(hcalIso);
+    h_hcalRecHitBcSumEtConeDR04_[0][0]->Fill(newhcalIso);
     h_isoTrkSolidConeDR04_[0][0]->Fill(trkIso);
     h_nTrkSolidConeDR04_[0][0]->Fill(nIsoTrk);
 
@@ -330,8 +330,8 @@ void PhotonValidatorMiniAOD::analyze(const edm::Event &iEvent, const edm::EventS
       h_hOverE_[0][1]->Fill(hOverE);
       h_newhOverE_[0][1]->Fill(newhOverE);
       h_ecalRecHitSumEtConeDR04_[0][1]->Fill(ecalIso);
-      h_hcalTowerSumEtConeDR04_[0][1]->Fill(hcalIso);
-      h_hcalTowerBcSumEtConeDR04_[0][1]->Fill(newhcalIso);
+      h_hcalRecHitSumEtConeDR04_[0][1]->Fill(hcalIso);
+      h_hcalRecHitBcSumEtConeDR04_[0][1]->Fill(newhcalIso);
       h_isoTrkSolidConeDR04_[0][1]->Fill(trkIso);
       h_nTrkSolidConeDR04_[0][1]->Fill(nIsoTrk);
       h_chHadIso_[1]->Fill(chargedHadIso);
@@ -353,8 +353,8 @@ void PhotonValidatorMiniAOD::analyze(const edm::Event &iEvent, const edm::EventS
       h_hOverE_[0][2]->Fill(hOverE);
       h_newhOverE_[0][2]->Fill(newhOverE);
       h_ecalRecHitSumEtConeDR04_[0][2]->Fill(ecalIso);
-      h_hcalTowerSumEtConeDR04_[0][2]->Fill(hcalIso);
-      h_hcalTowerBcSumEtConeDR04_[0][2]->Fill(newhcalIso);
+      h_hcalRecHitSumEtConeDR04_[0][2]->Fill(hcalIso);
+      h_hcalRecHitBcSumEtConeDR04_[0][2]->Fill(newhcalIso);
       h_isoTrkSolidConeDR04_[0][2]->Fill(trkIso);
       h_nTrkSolidConeDR04_[0][2]->Fill(nIsoTrk);
       h_chHadIso_[2]->Fill(chargedHadIso);

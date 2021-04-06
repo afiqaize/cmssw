@@ -269,15 +269,15 @@ private:
   MonitorElement* h2_ecalRecHitSumEtConeDR04VsEt_[3];
   MonitorElement* p_ecalRecHitSumEtConeDR04VsEt_[3];
   //
-  MonitorElement* h_hcalTowerSumEtConeDR04_[3][3];
-  MonitorElement* h2_hcalTowerSumEtConeDR04VsEta_[3];
-  MonitorElement* p_hcalTowerSumEtConeDR04VsEta_[3];
-  MonitorElement* h2_hcalTowerSumEtConeDR04VsEt_[3];
-  MonitorElement* p_hcalTowerSumEtConeDR04VsEt_[3];
+  MonitorElement* h_hcalRecHitSumEtConeDR04_[3][3];
+  MonitorElement* h2_hcalRecHitSumEtConeDR04VsEta_[3];
+  MonitorElement* p_hcalRecHitSumEtConeDR04VsEta_[3];
+  MonitorElement* h2_hcalRecHitSumEtConeDR04VsEt_[3];
+  MonitorElement* p_hcalRecHitSumEtConeDR04VsEt_[3];
   //
-  MonitorElement* h_hcalTowerBcSumEtConeDR04_[3][3];
-  MonitorElement* p_hcalTowerBcSumEtConeDR04VsEta_[3];
-  MonitorElement* p_hcalTowerBcSumEtConeDR04VsEt_[3];
+  MonitorElement* h_hcalRecHitBcSumEtConeDR04_[3][3];
+  MonitorElement* p_hcalRecHitBcSumEtConeDR04VsEta_[3];
+  MonitorElement* p_hcalRecHitBcSumEtConeDR04VsEt_[3];
   //
   MonitorElement* h_isoTrkSolidConeDR04_[3][3];
   MonitorElement* h2_isoTrkSolidConeDR04VsEta_[3];
@@ -362,8 +362,8 @@ private:
   MonitorElement* h_hOverE_miniAOD_[3][3];
   MonitorElement* h_newhOverE_miniAOD_[3][3];
   MonitorElement* h_ecalRecHitSumEtConeDR04_miniAOD_[3][3];
-  MonitorElement* h_hcalTowerSumEtConeDR04_miniAOD_[3][3];
-  MonitorElement* h_hcalTowerBcSumEtConeDR04_miniAOD_[3][3];
+  MonitorElement* h_hcalRecHitSumEtConeDR04_miniAOD_[3][3];
+  MonitorElement* h_hcalRecHitBcSumEtConeDR04_miniAOD_[3][3];
   MonitorElement* h_isoTrkSolidConeDR04_miniAOD_[3][3];
   MonitorElement* h_nTrkSolidConeDR04_miniAOD_[3][3];
 
@@ -559,11 +559,11 @@ private:
   MonitorElement* h2_ecalRecHitSumEtConeDR04VsEtBkg_[3];
   MonitorElement* p_ecalRecHitSumEtConeDR04VsEtBkg_[3];
 
-  MonitorElement* h_hcalTowerSumEtConeDR04Bkg_[3];
-  MonitorElement* h2_hcalTowerSumEtConeDR04VsEtaBkg_;
-  MonitorElement* p_hcalTowerSumEtConeDR04VsEtaBkg_;
-  MonitorElement* h2_hcalTowerSumEtConeDR04VsEtBkg_[3];
-  MonitorElement* p_hcalTowerSumEtConeDR04VsEtBkg_[3];
+  MonitorElement* h_hcalRecHitSumEtConeDR04Bkg_[3];
+  MonitorElement* h2_hcalRecHitSumEtConeDR04VsEtaBkg_;
+  MonitorElement* p_hcalRecHitSumEtConeDR04VsEtaBkg_;
+  MonitorElement* h2_hcalRecHitSumEtConeDR04VsEtBkg_[3];
+  MonitorElement* p_hcalRecHitSumEtConeDR04VsEtBkg_[3];
 
   MonitorElement* h_isoTrkSolidConeDR04Bkg_[3];
   MonitorElement* h2_isoTrkSolidConeDR04VsEtaBkg_;

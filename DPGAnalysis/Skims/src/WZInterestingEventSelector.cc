@@ -184,7 +184,7 @@ bool WZInterestingEventSelector::electronSelection(const GsfElectron* eleRef, co
       return false;
     if (eleRef->dr03EcalRecHitSumEt() / eleRef->pt() > eb_ecalIsoCut_)
       return false;
-    if (eleRef->dr03HcalTowerSumEt() / eleRef->pt() > eb_hcalIsoCut_)
+    if (eleRef->dr03HcalRecHitSumEt() / eleRef->pt() > eb_hcalIsoCut_)
       return false;
     if (eleRef->sigmaIetaIeta() > eb_seeCut_)
       return false;
@@ -195,7 +195,7 @@ bool WZInterestingEventSelector::electronSelection(const GsfElectron* eleRef, co
       return false;
     if (eleRef->dr03EcalRecHitSumEt() / eleRef->pt() > ee_ecalIsoCut_)
       return false;
-    if (eleRef->dr03HcalTowerSumEt() / eleRef->pt() > ee_hcalIsoCut_)
+    if (eleRef->dr03HcalRecHitSumEt() / eleRef->pt() > ee_hcalIsoCut_)
       return false;
     if (eleRef->sigmaIetaIeta() > ee_seeCut_)
       return false;

@@ -92,7 +92,7 @@ process.photonIsolation = cms.EDFilter("PhotonRefSelector",
     src = cms.InputTag("probePhotons"),
     cut = cms.string(
     "(ecalRecHitSumEtConeDR04 < (0.006*pt + 4.2))"
-    " && (hcalTowerSumEtConeDR04 < (0.0025*pt + 2.2 ))"
+    " && (hcalRecHitSumEtConeDR04 < (0.0025*pt + 2.2 ))"
     )
 )
 
@@ -112,21 +112,21 @@ process.photonIDsusydiphoton.cut = cms.string(
 process.photonIDiso = process.photonIsolation.clone()
 process.photonIDiso.cut = cms.string(
     "hadronicOverEm < 0.05 && ecalRecHitSumEtConeDR04 < 2.4"
-    "&& hcalTowerSumEtConeDR04 < 1.0 && trkSumPtHollowConeDR04 < 0.9"
+    "&& hcalRecHitSumEtConeDR04 < 1.0 && trkSumPtHollowConeDR04 < 0.9"
     " &&sigmaIetaIeta > 0.001"
     )
 
 process.photonIDreliso = process.photonIsolation.clone()
 process.photonIDreliso.cut = cms.string(
     "hadronicOverEm < 0.05 && ecalRecHitSumEtConeDR04 < 4.2+0.001*pt"
-    " && hcalTowerSumEtConeDR04 < 2.2+0.003*pt"
+    " && hcalRecHitSumEtConeDR04 < 2.2+0.003*pt"
     " && trkSumPtHollowConeDR04 < 2+0.001*pt && sigmaIetaIeta > 0.001"
     )
 
 process.photonIDreliso2 = process.photonIsolation.clone()
 process.photonIDreliso2.cut = cms.string(
     "hadronicOverEm < 0.05 && ecalRecHitSumEtConeDR04 < 4.2+0.001*pt"
-    " && hcalTowerSumEtConeDR04 < 2.2+0.003*pt && sigmaIetaIeta > 0.001"
+    " && hcalRecHitSumEtConeDR04 < 2.2+0.003*pt && sigmaIetaIeta > 0.001"
     )
 
 
@@ -205,14 +205,14 @@ process.ElectronPassingWP80 = cms.EDFilter("GsfElectronRefSelector",
     cut = cms.string( ELECTRON_CUTS  +
     " && (gsfTrack.hitPattern().numberOfLostHits(\'MISSING_INNER_HITS\') == 0 && !(-0.02<convDist<0.02 && -0.02<convDcot<0.02))"
     " && ((isEB"
-    " && ( dr03TkSumPt/p4.Pt <0.09 && dr03EcalRecHitSumEt/p4.Pt < 0.07 && dr03HcalTowerSumEt/p4.Pt  < 0.1 )"
+    " && ( dr03TkSumPt/p4.Pt <0.09 && dr03EcalRecHitSumEt/p4.Pt < 0.07 && dr03HcalRecHitSumEt/p4.Pt  < 0.1 )"
     " && (sigmaIetaIeta<0.01)"
     " && ( -0.06<deltaPhiSuperClusterTrackAtVtx<0.06 )"
     " && ( -0.004<deltaEtaSuperClusterTrackAtVtx<0.004 )"
     " && (hadronicOverEm<0.04)"
     ")"
     " || (isEE"
-    " && ( dr03TkSumPt/p4.Pt <0.04 && dr03EcalRecHitSumEt/p4.Pt < 0.05 && dr03HcalTowerSumEt/p4.Pt  < 0.025 )"
+    " && ( dr03TkSumPt/p4.Pt <0.04 && dr03EcalRecHitSumEt/p4.Pt < 0.05 && dr03HcalRecHitSumEt/p4.Pt  < 0.025 )"
     " && (sigmaIetaIeta<0.03)"
     " && ( -0.03<deltaPhiSuperClusterTrackAtVtx<0.03 )"
     " && ( -0.007<deltaEtaSuperClusterTrackAtVtx<0.007 )"
@@ -367,10 +367,10 @@ ProbePhotonVariablesToStore = cms.PSet(
         ## isolation 
         probe_trkSumPtHollowConeDR03 = cms.string("trkSumPtHollowConeDR03"),
         probe_ecalRecHitSumEtConeDR03  = cms.string("ecalRecHitSumEtConeDR03"),
-        probe_hcalTowerSumEtConeDR03  = cms.string("hcalTowerSumEtConeDR03"),
+        probe_hcalRecHitSumEtConeDR03  = cms.string("hcalRecHitSumEtConeDR03"),
         probe_trkSumPtHollowConeDR04 = cms.string("trkSumPtHollowConeDR04"),
         probe_ecalRecHitSumEtConeDR04  = cms.string("ecalRecHitSumEtConeDR04"),
-        probe_hcalTowerSumEtConeDR04  = cms.string("hcalTowerSumEtConeDR04"),
+        probe_hcalRecHitSumEtConeDR04  = cms.string("hcalRecHitSumEtConeDR04"),
         ## booleans
         probe_isPhoton  = cms.string("isPhoton"),     
 

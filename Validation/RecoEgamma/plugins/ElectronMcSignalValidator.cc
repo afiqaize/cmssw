@@ -539,20 +539,20 @@ ElectronMcSignalValidator::ElectronMcSignalValidator(const edm::ParameterSet &co
   h1_ele_ecalRecHitSumEt_dr03 = nullptr;
   h1_ele_ecalRecHitSumEt_dr03_barrel = nullptr;
   h1_ele_ecalRecHitSumEt_dr03_endcaps = nullptr;
-  h1_ele_hcalTowerSumEt_dr03_depth1 = nullptr;
-  h1_ele_hcalTowerSumEt_dr03_depth1_barrel = nullptr;
-  h1_ele_hcalTowerSumEt_dr03_depth1_endcaps = nullptr;
-  h1_ele_hcalTowerSumEt_dr03_depth2 = nullptr;
+  h1_ele_hcalRecHitSumEt_dr03_depth1 = nullptr;
+  h1_ele_hcalRecHitSumEt_dr03_depth1_barrel = nullptr;
+  h1_ele_hcalRecHitSumEt_dr03_depth1_endcaps = nullptr;
+  h1_ele_hcalRecHitSumEt_dr03_depth2 = nullptr;
   h1_ele_tkSumPt_dr04 = nullptr;
   h1_ele_tkSumPt_dr04_barrel = nullptr;
   h1_ele_tkSumPt_dr04_endcaps = nullptr;
   h1_ele_ecalRecHitSumEt_dr04 = nullptr;
   h1_ele_ecalRecHitSumEt_dr04_barrel = nullptr;
   h1_ele_ecalRecHitSumEt_dr04_endcaps = nullptr;
-  h1_ele_hcalTowerSumEt_dr04_depth1 = nullptr;
-  h1_ele_hcalTowerSumEt_dr04_depth1_barrel = nullptr;
-  h1_ele_hcalTowerSumEt_dr04_depth1_endcaps = nullptr;
-  h1_ele_hcalTowerSumEt_dr04_depth2 = nullptr;
+  h1_ele_hcalRecHitSumEt_dr04_depth1 = nullptr;
+  h1_ele_hcalRecHitSumEt_dr04_depth1_barrel = nullptr;
+  h1_ele_hcalRecHitSumEt_dr04_depth1_endcaps = nullptr;
+  h1_ele_hcalRecHitSumEt_dr04_depth2 = nullptr;
 
   // conversions
   h1_ele_convFlags = nullptr;
@@ -2671,8 +2671,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                         "EcalIsoSum, cone 0.3 (GeV)",
                                                         "Events",
                                                         "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEt_dr03_depth1 = bookH1withSumw2(iBooker,
-                                                      "hcalTowerSumEt_dr03_depth1",
+  h1_ele_hcalRecHitSumEt_dr03_depth1 = bookH1withSumw2(iBooker,
+                                                      "hcalRecHitSumEt_dr03_depth1",
                                                       "hcal depth1 isolation sum, dR=0.3",
                                                       100,
                                                       0.0,
@@ -2680,8 +2680,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                       "Hcal1IsoSum, cone 0.3 (GeV)",
                                                       "Events",
                                                       "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEt_dr03_depth1_barrel = bookH1withSumw2(iBooker,
-                                                             "hcalTowerSumEt_dr03_depth1_barrel",
+  h1_ele_hcalRecHitSumEt_dr03_depth1_barrel = bookH1withSumw2(iBooker,
+                                                             "hcalRecHitSumEt_dr03_depth1_barrel",
                                                              "hcal depth1 isolation sum, dR=0.3, barrel",
                                                              100,
                                                              0.0,
@@ -2689,8 +2689,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                              "Hcal1IsoSum, cone 0.3 (GeV)",
                                                              "Events",
                                                              "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEt_dr03_depth1_endcaps = bookH1withSumw2(iBooker,
-                                                              "hcalTowerSumEt_dr03_depth1_endcaps",
+  h1_ele_hcalRecHitSumEt_dr03_depth1_endcaps = bookH1withSumw2(iBooker,
+                                                              "hcalRecHitSumEt_dr03_depth1_endcaps",
                                                               "hcal depth1 isolation sum, dR=0.3, endcaps",
                                                               100,
                                                               0.0,
@@ -2698,8 +2698,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                               "Hcal1IsoSum, cone 0.3 (GeV)",
                                                               "Events",
                                                               "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEt_dr03_depth2 = bookH1withSumw2(iBooker,
-                                                      "hcalTowerSumEt_dr03_depth2",
+  h1_ele_hcalRecHitSumEt_dr03_depth2 = bookH1withSumw2(iBooker,
+                                                      "hcalRecHitSumEt_dr03_depth2",
                                                       "hcal depth2 isolation sum, dR=0.3",
                                                       100,
                                                       0.0,
@@ -2707,8 +2707,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                       "Hcal2IsoSum, cone 0.3 (GeV)",
                                                       "Events",
                                                       "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEt_dr03_depth2_barrel = bookH1withSumw2(iBooker,
-                                                             "hcalTowerSumEt_dr03_depth2_barrel",
+  h1_ele_hcalRecHitSumEt_dr03_depth2_barrel = bookH1withSumw2(iBooker,
+                                                             "hcalRecHitSumEt_dr03_depth2_barrel",
                                                              "hcal depth2 isolation sum, dR=0.3",
                                                              100,
                                                              0.0,
@@ -2716,8 +2716,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                              "Hcal2IsoSum, cone 0.3 (GeV)",
                                                              "Events",
                                                              "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEt_dr03_depth2_endcaps = bookH1withSumw2(iBooker,
-                                                              "hcalTowerSumEt_dr03_depth2_endcaps",
+  h1_ele_hcalRecHitSumEt_dr03_depth2_endcaps = bookH1withSumw2(iBooker,
+                                                              "hcalRecHitSumEt_dr03_depth2_endcaps",
                                                               "hcal depth2 isolation sum, dR=0.3",
                                                               100,
                                                               0.0,
@@ -2779,8 +2779,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                         "EcalIsoSum, cone 0.4 (GeV)",
                                                         "Events",
                                                         "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEt_dr04_depth1 = bookH1withSumw2(iBooker,
-                                                      "hcalTowerSumEt_dr04_depth1",
+  h1_ele_hcalRecHitSumEt_dr04_depth1 = bookH1withSumw2(iBooker,
+                                                      "hcalRecHitSumEt_dr04_depth1",
                                                       "hcal depth1 isolation sum, dR=0.4",
                                                       100,
                                                       0.0,
@@ -2788,8 +2788,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                       "Hcal1IsoSum, cone 0.4 (GeV)",
                                                       "Events",
                                                       "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEt_dr04_depth1_barrel = bookH1withSumw2(iBooker,
-                                                             "hcalTowerSumEt_dr04_depth1_barrel",
+  h1_ele_hcalRecHitSumEt_dr04_depth1_barrel = bookH1withSumw2(iBooker,
+                                                             "hcalRecHitSumEt_dr04_depth1_barrel",
                                                              "hcal depth1 isolation sum, dR=0.4, barrel",
                                                              100,
                                                              0.0,
@@ -2797,8 +2797,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                              "Hcal1IsoSum, cone 0.4 (GeV)",
                                                              "Events",
                                                              "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEt_dr04_depth1_endcaps = bookH1withSumw2(iBooker,
-                                                              "hcalTowerSumEt_dr04_depth1_endcaps",
+  h1_ele_hcalRecHitSumEt_dr04_depth1_endcaps = bookH1withSumw2(iBooker,
+                                                              "hcalRecHitSumEt_dr04_depth1_endcaps",
                                                               "hcal depth1 isolation sum, dR=0.4, endcaps",
                                                               100,
                                                               0.0,
@@ -2806,8 +2806,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                               "Hcal1IsoSum, cone 0.4 (GeV)",
                                                               "Events",
                                                               "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEt_dr04_depth2 = bookH1withSumw2(iBooker,
-                                                      "hcalTowerSumEt_dr04_depth2",
+  h1_ele_hcalRecHitSumEt_dr04_depth2 = bookH1withSumw2(iBooker,
+                                                      "hcalRecHitSumEt_dr04_depth2",
                                                       "hcal depth2 isolation sum, dR=0.4",
                                                       100,
                                                       0.0,
@@ -2815,8 +2815,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                       "Hcal2IsoSum, cone 0.4 (GeV)",
                                                       "Events",
                                                       "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEt_dr04_depth2_barrel = bookH1withSumw2(iBooker,
-                                                             "hcalTowerSumEt_dr04_depth2_barrel",
+  h1_ele_hcalRecHitSumEt_dr04_depth2_barrel = bookH1withSumw2(iBooker,
+                                                             "hcalRecHitSumEt_dr04_depth2_barrel",
                                                              "hcal depth2 isolation sum, dR=0.4",
                                                              100,
                                                              0.0,
@@ -2824,8 +2824,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                              "Hcal2IsoSum, cone 0.4 (GeV)",
                                                              "Events",
                                                              "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEt_dr04_depth2_endcaps = bookH1withSumw2(iBooker,
-                                                              "hcalTowerSumEt_dr04_depth2_endcaps",
+  h1_ele_hcalRecHitSumEt_dr04_depth2_endcaps = bookH1withSumw2(iBooker,
+                                                              "hcalRecHitSumEt_dr04_depth2_endcaps",
                                                               "hcal depth2 isolation sum, dR=0.4",
                                                               100,
                                                               0.0,
@@ -2836,8 +2836,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
 
   // newHCAL
   // isolation new hcal
-  h1_ele_hcalTowerSumEtBc_dr03_depth1 = bookH1withSumw2(iBooker,
-                                                        "hcalTowerSumEtBc_dr03_depth1",
+  h1_ele_hcalRecHitSumEtBc_dr03_depth1 = bookH1withSumw2(iBooker,
+                                                        "hcalRecHitSumEtBc_dr03_depth1",
                                                         "hcal depth1 isolation sum behind cluster, dR=0.3",
                                                         100,
                                                         0.0,
@@ -2845,9 +2845,9 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                         "Hcal1IsoSum, cone 0.3 (GeV)",
                                                         "Events",
                                                         "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEtBc_dr03_depth1_barrel =
+  h1_ele_hcalRecHitSumEtBc_dr03_depth1_barrel =
       bookH1withSumw2(iBooker,
-                      "hcalTowerSumEtBc_dr03_depth1_barrel",
+                      "hcalRecHitSumEtBc_dr03_depth1_barrel",
                       "hcal depth1 isolation sum behind cluster, dR=0.3, barrel",
                       100,
                       0.0,
@@ -2855,9 +2855,9 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                       "Hcal1IsoSum, cone 0.3 (GeV)",
                       "Events",
                       "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEtBc_dr03_depth1_endcaps =
+  h1_ele_hcalRecHitSumEtBc_dr03_depth1_endcaps =
       bookH1withSumw2(iBooker,
-                      "hcalTowerSumEtBc_dr03_depth1_endcaps",
+                      "hcalRecHitSumEtBc_dr03_depth1_endcaps",
                       "hcal depth1 isolation sum behind cluster, dR=0.3, endcaps",
                       100,
                       0.0,
@@ -2866,8 +2866,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                       "Events",
                       "ELE_LOGY E1 P");
 
-  h1_ele_hcalTowerSumEtBc_dr04_depth1 = bookH1withSumw2(iBooker,
-                                                        "hcalTowerSumEtBc_dr04_depth1",
+  h1_ele_hcalRecHitSumEtBc_dr04_depth1 = bookH1withSumw2(iBooker,
+                                                        "hcalRecHitSumEtBc_dr04_depth1",
                                                         "hcal depth1 isolation sum behind cluster, dR=0.4",
                                                         100,
                                                         0.0,
@@ -2875,9 +2875,9 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                         "Hcal1IsoSum, cone 0.4 (GeV)",
                                                         "Events",
                                                         "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEtBc_dr04_depth1_barrel =
+  h1_ele_hcalRecHitSumEtBc_dr04_depth1_barrel =
       bookH1withSumw2(iBooker,
-                      "hcalTowerSumEtBc_dr04_depth1_barrel",
+                      "hcalRecHitSumEtBc_dr04_depth1_barrel",
                       "hcal depth1 isolation sum behind cluster, dR=0.4, barrel",
                       100,
                       0.0,
@@ -2885,9 +2885,9 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                       "Hcal1IsoSum, cone 0.4 (GeV)",
                       "Events",
                       "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEtBc_dr04_depth1_endcaps =
+  h1_ele_hcalRecHitSumEtBc_dr04_depth1_endcaps =
       bookH1withSumw2(iBooker,
-                      "hcalTowerSumEtBc_dr04_depth1_endcaps",
+                      "hcalRecHitSumEtBc_dr04_depth1_endcaps",
                       "hcal depth1 isolation sum behind cluster, dR=0.4, endcaps",
                       100,
                       0.0,
@@ -2896,8 +2896,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                       "Events",
                       "ELE_LOGY E1 P");
 
-  h1_ele_hcalTowerSumEtBc_dr03_depth2 = bookH1withSumw2(iBooker,
-                                                        "hcalTowerSumEtBc_dr03_depth2",
+  h1_ele_hcalRecHitSumEtBc_dr03_depth2 = bookH1withSumw2(iBooker,
+                                                        "hcalRecHitSumEtBc_dr03_depth2",
                                                         "hcal depth2 isolation sum behind cluster, dR=0.3",
                                                         100,
                                                         0.0,
@@ -2905,9 +2905,9 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                         "Hcal1IsoSum, cone 0.3 (GeV)",
                                                         "Events",
                                                         "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEtBc_dr03_depth2_barrel =
+  h1_ele_hcalRecHitSumEtBc_dr03_depth2_barrel =
       bookH1withSumw2(iBooker,
-                      "hcalTowerSumEtBc_dr03_depth2_barrel",
+                      "hcalRecHitSumEtBc_dr03_depth2_barrel",
                       "hcal depth2 isolation sum behind cluster, dR=0.3, barrel",
                       100,
                       0.0,
@@ -2915,9 +2915,9 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                       "Hcal1IsoSum, cone 0.3 (GeV)",
                       "Events",
                       "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEtBc_dr03_depth2_endcaps =
+  h1_ele_hcalRecHitSumEtBc_dr03_depth2_endcaps =
       bookH1withSumw2(iBooker,
-                      "hcalTowerSumEtBc_dr03_depth2_endcaps",
+                      "hcalRecHitSumEtBc_dr03_depth2_endcaps",
                       "hcal depth2 isolation sum behind cluster, dR=0.3, endcaps",
                       100,
                       0.0,
@@ -2926,8 +2926,8 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                       "Events",
                       "ELE_LOGY E1 P");
 
-  h1_ele_hcalTowerSumEtBc_dr04_depth2 = bookH1withSumw2(iBooker,
-                                                        "hcalTowerSumEtBc_dr04_depth2",
+  h1_ele_hcalRecHitSumEtBc_dr04_depth2 = bookH1withSumw2(iBooker,
+                                                        "hcalRecHitSumEtBc_dr04_depth2",
                                                         "hcal depth2 isolation sum behind cluster, dR=0.4",
                                                         100,
                                                         0.0,
@@ -2935,9 +2935,9 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                                                         "Hcal1IsoSum, cone 0.4 (GeV)",
                                                         "Events",
                                                         "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEtBc_dr04_depth2_barrel =
+  h1_ele_hcalRecHitSumEtBc_dr04_depth2_barrel =
       bookH1withSumw2(iBooker,
-                      "hcalTowerSumEtBc_dr04_depth2_barrel",
+                      "hcalRecHitSumEtBc_dr04_depth2_barrel",
                       "hcal depth2 isolation sum behind cluster, dR=0.4, barrel",
                       100,
                       0.0,
@@ -2945,9 +2945,9 @@ void ElectronMcSignalValidator::bookHistograms(DQMStore::IBooker &iBooker, edm::
                       "Hcal1IsoSum, cone 0.4 (GeV)",
                       "Events",
                       "ELE_LOGY E1 P");
-  h1_ele_hcalTowerSumEtBc_dr04_depth2_endcaps =
+  h1_ele_hcalRecHitSumEtBc_dr04_depth2_endcaps =
       bookH1withSumw2(iBooker,
-                      "hcalTowerSumEtBc_dr04_depth2_endcaps",
+                      "hcalRecHitSumEtBc_dr04_depth2_endcaps",
                       "hcal depth2 isolation sum behind cluster, dR=0.4, endcaps",
                       100,
                       0.0,
@@ -4273,26 +4273,26 @@ void ElectronMcSignalValidator::analyze(const edm::Event &iEvent, const edm::Eve
       h1_ele_ecalRecHitSumEt_dr03_barrel->Fill(bestGsfElectron.dr03EcalRecHitSumEt());
     if (bestGsfElectron.isEE())
       h1_ele_ecalRecHitSumEt_dr03_endcaps->Fill(bestGsfElectron.dr03EcalRecHitSumEt());
-    h1_ele_hcalTowerSumEt_dr03_depth1->Fill(bestGsfElectron.dr03HcalDepth1TowerSumEt());
+    h1_ele_hcalRecHitSumEt_dr03_depth1->Fill(bestGsfElectron.dr03HcalRecHitSumEt(1));
     if (bestGsfElectron.isEB())
-      h1_ele_hcalTowerSumEt_dr03_depth1_barrel->Fill(bestGsfElectron.dr03HcalDepth1TowerSumEt());
+      h1_ele_hcalRecHitSumEt_dr03_depth1_barrel->Fill(bestGsfElectron.dr03HcalRecHitSumEt(1));
     if (bestGsfElectron.isEE())
-      h1_ele_hcalTowerSumEt_dr03_depth1_endcaps->Fill(bestGsfElectron.dr03HcalDepth1TowerSumEt());
-    h1_ele_hcalTowerSumEt_dr03_depth2->Fill(bestGsfElectron.dr03HcalDepth2TowerSumEt());
+      h1_ele_hcalRecHitSumEt_dr03_depth1_endcaps->Fill(bestGsfElectron.dr03HcalRecHitSumEt(1));
+    h1_ele_hcalRecHitSumEt_dr03_depth2->Fill(bestGsfElectron.dr03HcalRecHitSumEt(2));
     if (bestGsfElectron.isEB())
-      h1_ele_hcalTowerSumEt_dr03_depth2_barrel->Fill(bestGsfElectron.dr03HcalDepth2TowerSumEt());
+      h1_ele_hcalRecHitSumEt_dr03_depth2_barrel->Fill(bestGsfElectron.dr03HcalRecHitSumEt(2));
     if (bestGsfElectron.isEE())
-      h1_ele_hcalTowerSumEt_dr03_depth2_endcaps->Fill(bestGsfElectron.dr03HcalDepth2TowerSumEt());
-    h1_ele_hcalTowerSumEtBc_dr03_depth1->Fill(bestGsfElectron.dr03HcalDepth1TowerSumEtBc());
+      h1_ele_hcalRecHitSumEt_dr03_depth2_endcaps->Fill(bestGsfElectron.dr03HcalRecHitSumEt(2));
+    h1_ele_hcalRecHitSumEtBc_dr03_depth1->Fill(bestGsfElectron.dr03HcalRecHitSumEtBc(1));
     if (bestGsfElectron.isEB())
-      h1_ele_hcalTowerSumEtBc_dr03_depth1_barrel->Fill(bestGsfElectron.dr03HcalDepth1TowerSumEtBc());
+      h1_ele_hcalRecHitSumEtBc_dr03_depth1_barrel->Fill(bestGsfElectron.dr03HcalRecHitSumEtBc(1));
     if (bestGsfElectron.isEE())
-      h1_ele_hcalTowerSumEtBc_dr03_depth1_endcaps->Fill(bestGsfElectron.dr03HcalDepth1TowerSumEtBc());
-    h1_ele_hcalTowerSumEtBc_dr03_depth2->Fill(bestGsfElectron.dr03HcalDepth2TowerSumEtBc());
+      h1_ele_hcalRecHitSumEtBc_dr03_depth1_endcaps->Fill(bestGsfElectron.dr03HcalRecHitSumEtBc(1));
+    h1_ele_hcalRecHitSumEtBc_dr03_depth2->Fill(bestGsfElectron.dr03HcalRecHitSumEtBc(2));
     if (bestGsfElectron.isEB())
-      h1_ele_hcalTowerSumEtBc_dr03_depth2_barrel->Fill(bestGsfElectron.dr03HcalDepth2TowerSumEtBc());
+      h1_ele_hcalRecHitSumEtBc_dr03_depth2_barrel->Fill(bestGsfElectron.dr03HcalRecHitSumEtBc(2));
     if (bestGsfElectron.isEE())
-      h1_ele_hcalTowerSumEtBc_dr03_depth2_endcaps->Fill(bestGsfElectron.dr03HcalDepth2TowerSumEtBc());
+      h1_ele_hcalRecHitSumEtBc_dr03_depth2_endcaps->Fill(bestGsfElectron.dr03HcalRecHitSumEtBc(2));
     h1_ele_tkSumPt_dr04->Fill(bestGsfElectron.dr04TkSumPt());
     if (bestGsfElectron.isEB())
       h1_ele_tkSumPt_dr04_barrel->Fill(bestGsfElectron.dr04TkSumPt());
@@ -4303,38 +4303,38 @@ void ElectronMcSignalValidator::analyze(const edm::Event &iEvent, const edm::Eve
       h1_ele_ecalRecHitSumEt_dr04_barrel->Fill(bestGsfElectron.dr04EcalRecHitSumEt());
     if (bestGsfElectron.isEE())
       h1_ele_ecalRecHitSumEt_dr04_endcaps->Fill(bestGsfElectron.dr04EcalRecHitSumEt());
-    h1_ele_hcalTowerSumEt_dr04_depth1->Fill(bestGsfElectron.dr04HcalDepth1TowerSumEt());
+    h1_ele_hcalRecHitSumEt_dr04_depth1->Fill(bestGsfElectron.dr04HcalRecHitSumEt(1));
     if (bestGsfElectron.isEB())
-      h1_ele_hcalTowerSumEt_dr04_depth1_barrel->Fill(bestGsfElectron.dr04HcalDepth1TowerSumEt());
+      h1_ele_hcalRecHitSumEt_dr04_depth1_barrel->Fill(bestGsfElectron.dr04HcalRecHitSumEt(1));
     if (bestGsfElectron.isEE())
-      h1_ele_hcalTowerSumEt_dr04_depth1_endcaps->Fill(bestGsfElectron.dr04HcalDepth1TowerSumEt());
-    h1_ele_hcalTowerSumEt_dr04_depth2->Fill(bestGsfElectron.dr04HcalDepth2TowerSumEt());
+      h1_ele_hcalRecHitSumEt_dr04_depth1_endcaps->Fill(bestGsfElectron.dr04HcalRecHitSumEt(1));
+    h1_ele_hcalRecHitSumEt_dr04_depth2->Fill(bestGsfElectron.dr04HcalRecHitSumEt(2));
     if (bestGsfElectron.isEB())
-      h1_ele_hcalTowerSumEt_dr04_depth2_barrel->Fill(bestGsfElectron.dr04HcalDepth2TowerSumEt());
+      h1_ele_hcalRecHitSumEt_dr04_depth2_barrel->Fill(bestGsfElectron.dr04HcalRecHitSumEt(2));
     if (bestGsfElectron.isEE())
-      h1_ele_hcalTowerSumEt_dr04_depth2_endcaps->Fill(bestGsfElectron.dr04HcalDepth2TowerSumEt());
+      h1_ele_hcalRecHitSumEt_dr04_depth2_endcaps->Fill(bestGsfElectron.dr04HcalRecHitSumEt(2));
 
-    h1_ele_hcalTowerSumEtBc_dr04_depth1->Fill(bestGsfElectron.dr04HcalDepth1TowerSumEtBc());
+    h1_ele_hcalRecHitSumEtBc_dr04_depth1->Fill(bestGsfElectron.dr04HcalRecHitSumEtBc(1));
     if (bestGsfElectron.isEB())
-      h1_ele_hcalTowerSumEtBc_dr04_depth1_barrel->Fill(bestGsfElectron.dr04HcalDepth1TowerSumEtBc());
+      h1_ele_hcalRecHitSumEtBc_dr04_depth1_barrel->Fill(bestGsfElectron.dr04HcalRecHitSumEtBc(1));
     if (bestGsfElectron.isEE())
-      h1_ele_hcalTowerSumEtBc_dr04_depth1_endcaps->Fill(bestGsfElectron.dr04HcalDepth1TowerSumEtBc());
-    h1_ele_hcalTowerSumEtBc_dr04_depth2->Fill(bestGsfElectron.dr04HcalDepth2TowerSumEtBc());
+      h1_ele_hcalRecHitSumEtBc_dr04_depth1_endcaps->Fill(bestGsfElectron.dr04HcalRecHitSumEtBc(1));
+    h1_ele_hcalRecHitSumEtBc_dr04_depth2->Fill(bestGsfElectron.dr04HcalRecHitSumEtBc(2));
     if (bestGsfElectron.isEB())
-      h1_ele_hcalTowerSumEtBc_dr04_depth2_barrel->Fill(bestGsfElectron.dr04HcalDepth2TowerSumEtBc());
+      h1_ele_hcalRecHitSumEtBc_dr04_depth2_barrel->Fill(bestGsfElectron.dr04HcalRecHitSumEtBc(2));
     if (bestGsfElectron.isEE())
-      h1_ele_hcalTowerSumEtBc_dr04_depth2_endcaps->Fill(bestGsfElectron.dr04HcalDepth2TowerSumEtBc());
+      h1_ele_hcalRecHitSumEtBc_dr04_depth2_endcaps->Fill(bestGsfElectron.dr04HcalRecHitSumEtBc(2));
 
-    h1_ele_hcalDepth1OverEcalBc->Fill(bestGsfElectron.hcalDepth1OverEcalBc());
+    h1_ele_hcalDepth1OverEcalBc->Fill(bestGsfElectron.hcalOverEcalBc(1));
     if (bestGsfElectron.isEB())
-      h1_ele_hcalDepth1OverEcalBc_barrel->Fill(bestGsfElectron.hcalDepth1OverEcalBc());
+      h1_ele_hcalDepth1OverEcalBc_barrel->Fill(bestGsfElectron.hcalOverEcalBc(1));
     if (bestGsfElectron.isEE())
-      h1_ele_hcalDepth1OverEcalBc_endcaps->Fill(bestGsfElectron.hcalDepth1OverEcalBc());
-    h1_ele_hcalDepth2OverEcalBc->Fill(bestGsfElectron.hcalDepth2OverEcalBc());
+      h1_ele_hcalDepth1OverEcalBc_endcaps->Fill(bestGsfElectron.hcalOverEcalBc(1));
+    h1_ele_hcalDepth2OverEcalBc->Fill(bestGsfElectron.hcalOverEcalBc(2));
     if (bestGsfElectron.isEB())
-      h1_ele_hcalDepth2OverEcalBc_barrel->Fill(bestGsfElectron.hcalDepth2OverEcalBc());
+      h1_ele_hcalDepth2OverEcalBc_barrel->Fill(bestGsfElectron.hcalOverEcalBc(2));
     if (bestGsfElectron.isEE())
-      h1_ele_hcalDepth2OverEcalBc_endcaps->Fill(bestGsfElectron.hcalDepth2OverEcalBc());
+      h1_ele_hcalDepth2OverEcalBc_endcaps->Fill(bestGsfElectron.hcalOverEcalBc(2));
 
     // conversion rejection
     int flags = bestGsfElectron.convFlags();

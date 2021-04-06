@@ -85,7 +85,7 @@ public:  // interface
     double corr_ed0 = electron.edB();
     double corr_sd0 = (corr_ed0 > 0.000000001) ? corr_d0 / corr_ed0 : 999.0;
 
-    double hcalIso = electron.dr03HcalTowerSumEt();
+    double hcalIso = electron.dr03HcalRecHitSumEt();
     double ecalIso = electron.dr03EcalRecHitSumEt();
     double trkIso = electron.dr03TkSumPt();
     double et = electron.et();

@@ -656,34 +656,34 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                            etBin,
                                                            etMin,
                                                            etMax * etScale);
-    histname = "hcalTowerSumEtConeDR04VsEtaBkg";
-    h2_hcalTowerSumEtConeDR04VsEtaBkg_ = iBooker.book2D(histname + "All",
-                                                        " bkg hcalTowerSumEtDR04 vs #eta: all Ecal ",
+    histname = "hcalRecHitSumEtConeDR04VsEtaBkg";
+    h2_hcalRecHitSumEtConeDR04VsEtaBkg_ = iBooker.book2D(histname + "All",
+                                                        " bkg hcalRecHitSumEtDR04 vs #eta: all Ecal ",
                                                         etaBin2,
                                                         etaMin,
                                                         etaMax,
                                                         etBin,
                                                         etMin,
                                                         etMax * etScale);
-    histname = "hcalTowerSumEtConeDR04VsEtBkg";
-    h2_hcalTowerSumEtConeDR04VsEtBkg_[0] = iBooker.book2D(histname + "All",
-                                                          " Bkg hcalTowerSumEtDR04 vs Et: all Ecal ",
+    histname = "hcalRecHitSumEtConeDR04VsEtBkg";
+    h2_hcalRecHitSumEtConeDR04VsEtBkg_[0] = iBooker.book2D(histname + "All",
+                                                          " Bkg hcalRecHitSumEtDR04 vs Et: all Ecal ",
                                                           etBin,
                                                           etMin,
                                                           etMax,
                                                           etBin,
                                                           etMin,
                                                           etMax * etScale);
-    h2_hcalTowerSumEtConeDR04VsEtBkg_[1] = iBooker.book2D(histname + "Barrel",
-                                                          " Bkg hcalTowerSumEtDR04 vs Et: Barrel ",
+    h2_hcalRecHitSumEtConeDR04VsEtBkg_[1] = iBooker.book2D(histname + "Barrel",
+                                                          " Bkg hcalRecHitSumEtDR04 vs Et: Barrel ",
                                                           etBin,
                                                           etMin,
                                                           etMax,
                                                           etBin,
                                                           etMin,
                                                           etMax * etScale);
-    h2_hcalTowerSumEtConeDR04VsEtBkg_[2] = iBooker.book2D(histname + "Endcap",
-                                                          " Bkg hcalTowerSumEtDR04 vs Et: Endcap ",
+    h2_hcalRecHitSumEtConeDR04VsEtBkg_[2] = iBooker.book2D(histname + "Endcap",
+                                                          " Bkg hcalRecHitSumEtDR04 vs Et: Endcap ",
                                                           etBin,
                                                           etMin,
                                                           etMax,
@@ -736,18 +736,18 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                                etMax * etScale,
                                                                "");
   //
-  histname = "hcalTowerSumEtConeDR04Bkg";
-  h_hcalTowerSumEtConeDR04Bkg_[0] =
-      iBooker.book1D(histname + "All", "bkg hcalTowerSumEtDR04: All Ecal", etBin, etMin, 20.);
-  h_hcalTowerSumEtConeDR04Bkg_[1] =
-      iBooker.book1D(histname + "Barrel", "bkg hcalTowerSumEtDR04: Barrel ", etBin, etMin, 20.);
-  h_hcalTowerSumEtConeDR04Bkg_[2] =
-      iBooker.book1D(histname + "Endcap", "bkg hcalTowerSumEtDR04: Endcap ", etBin, etMin, 20.);
+  histname = "hcalRecHitSumEtConeDR04Bkg";
+  h_hcalRecHitSumEtConeDR04Bkg_[0] =
+      iBooker.book1D(histname + "All", "bkg hcalRecHitSumEtDR04: All Ecal", etBin, etMin, 20.);
+  h_hcalRecHitSumEtConeDR04Bkg_[1] =
+      iBooker.book1D(histname + "Barrel", "bkg hcalRecHitSumEtDR04: Barrel ", etBin, etMin, 20.);
+  h_hcalRecHitSumEtConeDR04Bkg_[2] =
+      iBooker.book1D(histname + "Endcap", "bkg hcalRecHitSumEtDR04: Endcap ", etBin, etMin, 20.);
   //
-  histname = "pHcalTowerSumEtConeDR04VsEtaBkg";
+  histname = "pHcalRecHitSumEtConeDR04VsEtaBkg";
   if (!isRunCentrally_)
-    p_hcalTowerSumEtConeDR04VsEtaBkg_ = iBooker.bookProfile(histname + "All",
-                                                            "bkg photons hcalTowerSumEtDR04 vs #eta: all Ecal ",
+    p_hcalRecHitSumEtConeDR04VsEtaBkg_ = iBooker.bookProfile(histname + "All",
+                                                            "bkg photons hcalRecHitSumEtDR04 vs #eta: all Ecal ",
                                                             etaBin2,
                                                             etaMin,
                                                             etaMax,
@@ -756,10 +756,10 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                             etMax * etScale,
                                                             "");
   //
-  histname = "pHcalTowerSumEtConeDR04VsEtBkg";
+  histname = "pHcalRecHitSumEtConeDR04VsEtBkg";
   if (!isRunCentrally_)
-    p_hcalTowerSumEtConeDR04VsEtBkg_[0] = iBooker.bookProfile(histname + "All",
-                                                              "Bkg hcalTowerSumEtDR04 vs Et: all Ecal ",
+    p_hcalRecHitSumEtConeDR04VsEtBkg_[0] = iBooker.bookProfile(histname + "All",
+                                                              "Bkg hcalRecHitSumEtDR04 vs Et: all Ecal ",
                                                               etBin,
                                                               etMin,
                                                               etMax,
@@ -768,8 +768,8 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                               etMax * etScale,
                                                               "");
   if (!isRunCentrally_)
-    p_hcalTowerSumEtConeDR04VsEtBkg_[1] = iBooker.bookProfile(histname + "Barrel",
-                                                              "Bkg hcalTowerSumEtDR04 vs Et: all Ecal ",
+    p_hcalRecHitSumEtConeDR04VsEtBkg_[1] = iBooker.bookProfile(histname + "Barrel",
+                                                              "Bkg hcalRecHitSumEtDR04 vs Et: all Ecal ",
                                                               etBin,
                                                               etMin,
                                                               etMax,
@@ -778,8 +778,8 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                               etMax * etScale,
                                                               "");
   if (!isRunCentrally_)
-    p_hcalTowerSumEtConeDR04VsEtBkg_[2] = iBooker.bookProfile(histname + "Endcap",
-                                                              "Bkg hcalTowerSumEtDR04 vs Et: all Ecal ",
+    p_hcalRecHitSumEtConeDR04VsEtBkg_[2] = iBooker.bookProfile(histname + "Endcap",
+                                                              "Bkg hcalRecHitSumEtDR04 vs Et: all Ecal ",
                                                               etBin,
                                                               etMin,
                                                               etMax,
@@ -1295,36 +1295,36 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                           etMax * etScale,
                                                           "");
   //
-  histname = "hcalTowerSumEtConeDR04";
-  h_hcalTowerSumEtConeDR04_[0][0] =
-      iBooker.book1D(histname + "All", "hcalTowerSumEtConeDR04: All Ecal", etBin, etMin, 20.);
-  h_hcalTowerSumEtConeDR04_[0][1] =
-      iBooker.book1D(histname + "Barrel", "hcalTowerSumEtConeDR04: Barrel ", etBin, etMin, 20.);
-  h_hcalTowerSumEtConeDR04_[0][2] =
-      iBooker.book1D(histname + "Endcap", "hcalTowerSumEtConeDR04: Endcap ", etBin, etMin, 20.);
+  histname = "hcalRecHitSumEtConeDR04";
+  h_hcalRecHitSumEtConeDR04_[0][0] =
+      iBooker.book1D(histname + "All", "hcalRecHitSumEtConeDR04: All Ecal", etBin, etMin, 20.);
+  h_hcalRecHitSumEtConeDR04_[0][1] =
+      iBooker.book1D(histname + "Barrel", "hcalRecHitSumEtConeDR04: Barrel ", etBin, etMin, 20.);
+  h_hcalRecHitSumEtConeDR04_[0][2] =
+      iBooker.book1D(histname + "Endcap", "hcalRecHitSumEtConeDR04: Endcap ", etBin, etMin, 20.);
   //
-  histname = "hcalTowerBcSumEtConeDR04";
+  histname = "hcalRecHitBcSumEtConeDR04";
   if (!isRunCentrally_)
-    h_hcalTowerBcSumEtConeDR04_[0][0] =
-        iBooker.book1D(histname + "All", "hcalTowerBcSumEtConeDR04: All Ecal", etBin, etMin, 20.);
-  h_hcalTowerBcSumEtConeDR04_[0][1] =
-      iBooker.book1D(histname + "Barrel", "hcalTowerBcSumEtConeDR04: Barrel ", etBin, etMin, 20.);
-  h_hcalTowerBcSumEtConeDR04_[0][2] =
-      iBooker.book1D(histname + "Endcap", "hcalTowerBcSumEtConeDR04: Endcap ", etBin, etMin, 20.);
+    h_hcalRecHitBcSumEtConeDR04_[0][0] =
+        iBooker.book1D(histname + "All", "hcalRecHitBcSumEtConeDR04: All Ecal", etBin, etMin, 20.);
+  h_hcalRecHitBcSumEtConeDR04_[0][1] =
+      iBooker.book1D(histname + "Barrel", "hcalRecHitBcSumEtConeDR04: Barrel ", etBin, etMin, 20.);
+  h_hcalRecHitBcSumEtConeDR04_[0][2] =
+      iBooker.book1D(histname + "Endcap", "hcalRecHitBcSumEtConeDR04: Endcap ", etBin, etMin, 20.);
 
   //
   if (!isRunCentrally_) {
-    histname = "hcalTowerSumEtConeDR04VsEta";
-    h2_hcalTowerSumEtConeDR04VsEta_[0] = iBooker.book2D(histname + "All",
-                                                        " All photons hcalTowerSumEtConeDR04 vs #eta: all Ecal ",
+    histname = "hcalRecHitSumEtConeDR04VsEta";
+    h2_hcalRecHitSumEtConeDR04VsEta_[0] = iBooker.book2D(histname + "All",
+                                                        " All photons hcalRecHitSumEtConeDR04 vs #eta: all Ecal ",
                                                         etaBin2,
                                                         etaMin,
                                                         etaMax,
                                                         etBin,
                                                         etMin,
                                                         etMax * 0.1);
-    h2_hcalTowerSumEtConeDR04VsEta_[1] = iBooker.book2D(histname + "Unconv",
-                                                        " All photons hcalTowerSumEtConeDR04 vs #eta: all Ecal ",
+    h2_hcalRecHitSumEtConeDR04VsEta_[1] = iBooker.book2D(histname + "Unconv",
+                                                        " All photons hcalRecHitSumEtConeDR04 vs #eta: all Ecal ",
                                                         etaBin2,
                                                         etaMin,
                                                         etaMax,
@@ -1332,9 +1332,9 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                         etMin,
                                                         etMax * 0.1);
   }
-  histname = "pHcalTowerSumEtConeDR04VsEta";
-  p_hcalTowerSumEtConeDR04VsEta_[0] = iBooker.bookProfile(histname + "All",
-                                                          "All photons hcalTowerSumEtDR04 vs #eta: all Ecal ",
+  histname = "pHcalRecHitSumEtConeDR04VsEta";
+  p_hcalRecHitSumEtConeDR04VsEta_[0] = iBooker.bookProfile(histname + "All",
+                                                          "All photons hcalRecHitSumEtDR04 vs #eta: all Ecal ",
                                                           etaBin2,
                                                           etaMin,
                                                           etaMax,
@@ -1342,8 +1342,8 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                           etMin,
                                                           etMax * 0.1,
                                                           "");
-  p_hcalTowerSumEtConeDR04VsEta_[1] = iBooker.bookProfile(histname + "Unconv",
-                                                          "All photons hcalTowerSumEtDR04 vs #eta: all Ecal ",
+  p_hcalRecHitSumEtConeDR04VsEta_[1] = iBooker.bookProfile(histname + "Unconv",
+                                                          "All photons hcalRecHitSumEtDR04 vs #eta: all Ecal ",
                                                           etaBin2,
                                                           etaMin,
                                                           etaMax,
@@ -1351,9 +1351,9 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                           etMin,
                                                           etMax * 0.1,
                                                           "");
-  histname = "pHcalTowerBcSumEtConeDR04VsEta";
-  p_hcalTowerBcSumEtConeDR04VsEta_[0] = iBooker.bookProfile(histname + "All",
-                                                            "All photons hcalTowerBcSumEtDR04 vs #eta: all Ecal ",
+  histname = "pHcalRecHitBcSumEtConeDR04VsEta";
+  p_hcalRecHitBcSumEtConeDR04VsEta_[0] = iBooker.bookProfile(histname + "All",
+                                                            "All photons hcalRecHitBcSumEtDR04 vs #eta: all Ecal ",
                                                             etaBin2,
                                                             etaMin,
                                                             etaMax,
@@ -1361,8 +1361,8 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                             etMin,
                                                             etMax * 0.1,
                                                             "");
-  p_hcalTowerBcSumEtConeDR04VsEta_[1] = iBooker.bookProfile(histname + "Unconv",
-                                                            "All photons hcalTowerBcSumEtDR04 vs #eta: all Ecal ",
+  p_hcalRecHitBcSumEtConeDR04VsEta_[1] = iBooker.bookProfile(histname + "Unconv",
+                                                            "All photons hcalRecHitBcSumEtDR04 vs #eta: all Ecal ",
                                                             etaBin2,
                                                             etaMin,
                                                             etaMax,
@@ -1372,25 +1372,25 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                             "");
   //
   if (!isRunCentrally_) {
-    histname = "hcalTowerSumEtConeDR04VsEt";
-    h2_hcalTowerSumEtConeDR04VsEt_[0] = iBooker.book2D(histname + "All",
-                                                       " All photons hcalTowerSumEtConeDR04 vs Et: all Ecal ",
+    histname = "hcalRecHitSumEtConeDR04VsEt";
+    h2_hcalRecHitSumEtConeDR04VsEt_[0] = iBooker.book2D(histname + "All",
+                                                       " All photons hcalRecHitSumEtConeDR04 vs Et: all Ecal ",
                                                        etBin,
                                                        etMin,
                                                        etMax,
                                                        etBin,
                                                        etMin,
                                                        etMax * 0.1);
-    h2_hcalTowerSumEtConeDR04VsEt_[1] = iBooker.book2D(histname + "Barrel",
-                                                       " All photons hcalTowerSumEtConeDR04 vs Et: Barrel ",
+    h2_hcalRecHitSumEtConeDR04VsEt_[1] = iBooker.book2D(histname + "Barrel",
+                                                       " All photons hcalRecHitSumEtConeDR04 vs Et: Barrel ",
                                                        etBin,
                                                        etMin,
                                                        etMax,
                                                        etBin,
                                                        etMin,
                                                        etMax * 0.1);
-    h2_hcalTowerSumEtConeDR04VsEt_[2] = iBooker.book2D(histname + "Endcap",
-                                                       " All photons hcalTowerSumEtConeDR04 vs Et: Endcap ",
+    h2_hcalRecHitSumEtConeDR04VsEt_[2] = iBooker.book2D(histname + "Endcap",
+                                                       " All photons hcalRecHitSumEtConeDR04 vs Et: Endcap ",
                                                        etBin,
                                                        etMin,
                                                        etMax,
@@ -1398,10 +1398,10 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                        etMin,
                                                        etMax * 0.1);
   }
-  histname = "pHcalTowerSumEtConeDR04VsEt";
+  histname = "pHcalRecHitSumEtConeDR04VsEt";
   if (!isRunCentrally_)
-    p_hcalTowerSumEtConeDR04VsEt_[0] = iBooker.bookProfile(histname + "All",
-                                                           "All photons hcalTowerSumEtDR04 vs Et: all Ecal ",
+    p_hcalRecHitSumEtConeDR04VsEt_[0] = iBooker.bookProfile(histname + "All",
+                                                           "All photons hcalRecHitSumEtDR04 vs Et: all Ecal ",
                                                            etBin,
                                                            etMin,
                                                            etMax,
@@ -1409,8 +1409,8 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                            etMin,
                                                            etMax * etScale,
                                                            "");
-  p_hcalTowerSumEtConeDR04VsEt_[1] = iBooker.bookProfile(histname + "Barrel",
-                                                         "All photons hcalTowerSumEtDR04 vs Et: all Ecal ",
+  p_hcalRecHitSumEtConeDR04VsEt_[1] = iBooker.bookProfile(histname + "Barrel",
+                                                         "All photons hcalRecHitSumEtDR04 vs Et: all Ecal ",
                                                          etBin,
                                                          etMin,
                                                          etMax,
@@ -1418,8 +1418,8 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                          etMin,
                                                          etMax * etScale,
                                                          "");
-  p_hcalTowerSumEtConeDR04VsEt_[2] = iBooker.bookProfile(histname + "Endcap",
-                                                         "All photons hcalTowerSumEtDR04 vs Et: all Ecal ",
+  p_hcalRecHitSumEtConeDR04VsEt_[2] = iBooker.bookProfile(histname + "Endcap",
+                                                         "All photons hcalRecHitSumEtDR04 vs Et: all Ecal ",
                                                          etBin,
                                                          etMin,
                                                          etMax,
@@ -1428,10 +1428,10 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                          etMax * etScale,
                                                          "");
   //
-  histname = "pHcalTowerBcSumEtConeDR04VsEt";
+  histname = "pHcalRecHitBcSumEtConeDR04VsEt";
   if (!isRunCentrally_)
-    p_hcalTowerBcSumEtConeDR04VsEt_[0] = iBooker.bookProfile(histname + "All",
-                                                             "All photons hcalTowerBcSumEtDR04 vs Et: all Ecal ",
+    p_hcalRecHitBcSumEtConeDR04VsEt_[0] = iBooker.bookProfile(histname + "All",
+                                                             "All photons hcalRecHitBcSumEtDR04 vs Et: all Ecal ",
                                                              etBin,
                                                              etMin,
                                                              etMax,
@@ -1439,8 +1439,8 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                              etMin,
                                                              etMax * etScale,
                                                              "");
-  p_hcalTowerBcSumEtConeDR04VsEt_[1] = iBooker.bookProfile(histname + "Barrel",
-                                                           "All photons hcalTowerBcSumEtDR04 vs Et: all Ecal ",
+  p_hcalRecHitBcSumEtConeDR04VsEt_[1] = iBooker.bookProfile(histname + "Barrel",
+                                                           "All photons hcalRecHitBcSumEtDR04 vs Et: all Ecal ",
                                                            etBin,
                                                            etMin,
                                                            etMax,
@@ -1448,8 +1448,8 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
                                                            etMin,
                                                            etMax * etScale,
                                                            "");
-  p_hcalTowerBcSumEtConeDR04VsEt_[2] = iBooker.bookProfile(histname + "Endcap",
-                                                           "All photons hcalTowerBcSumEtDR04 vs Et: all Ecal ",
+  p_hcalRecHitBcSumEtConeDR04VsEt_[2] = iBooker.bookProfile(histname + "Endcap",
+                                                           "All photons hcalRecHitBcSumEtDR04 vs Et: all Ecal ",
                                                            etBin,
                                                            etMin,
                                                            etMax,
@@ -2264,21 +2264,21 @@ void PhotonValidator::bookHistograms(DQMStore::IBooker& iBooker, edm::Run const&
       iBooker.book1D(histname + "Barrel_miniAOD", "ecalRecHitSumEtDR04: Barrel ", etBin, etMin, 20.);
   h_ecalRecHitSumEtConeDR04_miniAOD_[0][2] =
       iBooker.book1D(histname + "Endcap_miniAOD", "ecalRecHitSumEtDR04: Endcap ", etBin, etMin, 20.);
-  histname = "hcalTowerSumEtConeDR04";
-  h_hcalTowerSumEtConeDR04_miniAOD_[0][0] =
-      iBooker.book1D(histname + "All_miniAOD", "hcalTowerSumEtConeDR04: All Ecal", etBin, etMin, 20.);
-  h_hcalTowerSumEtConeDR04_miniAOD_[0][1] =
-      iBooker.book1D(histname + "Barrel_miniAOD", "hcalTowerSumEtConeDR04: Barrel ", etBin, etMin, 20.);
-  h_hcalTowerSumEtConeDR04_miniAOD_[0][2] =
-      iBooker.book1D(histname + "Endcap_miniAOD", "hcalTowerSumEtConeDR04: Endcap ", etBin, etMin, 20.);
+  histname = "hcalRecHitSumEtConeDR04";
+  h_hcalRecHitSumEtConeDR04_miniAOD_[0][0] =
+      iBooker.book1D(histname + "All_miniAOD", "hcalRecHitSumEtConeDR04: All Ecal", etBin, etMin, 20.);
+  h_hcalRecHitSumEtConeDR04_miniAOD_[0][1] =
+      iBooker.book1D(histname + "Barrel_miniAOD", "hcalRecHitSumEtConeDR04: Barrel ", etBin, etMin, 20.);
+  h_hcalRecHitSumEtConeDR04_miniAOD_[0][2] =
+      iBooker.book1D(histname + "Endcap_miniAOD", "hcalRecHitSumEtConeDR04: Endcap ", etBin, etMin, 20.);
   //
-  histname = "hcalTowerBcSumEtConeDR04";
-  h_hcalTowerBcSumEtConeDR04_miniAOD_[0][0] =
-      iBooker.book1D(histname + "All_miniAOD", "hcalTowerBcSumEtConeDR04: All Ecal", etBin, etMin, 20.);
-  h_hcalTowerBcSumEtConeDR04_miniAOD_[0][1] =
-      iBooker.book1D(histname + "Barrel_miniAOD", "hcalTowerBcSumEtConeDR04: Barrel ", etBin, etMin, 20.);
-  h_hcalTowerBcSumEtConeDR04_miniAOD_[0][2] =
-      iBooker.book1D(histname + "Endcap_miniAOD", "hcalTowerBcSumEtConeDR04: Endcap ", etBin, etMin, 20.);
+  histname = "hcalRecHitBcSumEtConeDR04";
+  h_hcalRecHitBcSumEtConeDR04_miniAOD_[0][0] =
+      iBooker.book1D(histname + "All_miniAOD", "hcalRecHitBcSumEtConeDR04: All Ecal", etBin, etMin, 20.);
+  h_hcalRecHitBcSumEtConeDR04_miniAOD_[0][1] =
+      iBooker.book1D(histname + "Barrel_miniAOD", "hcalRecHitBcSumEtConeDR04: Barrel ", etBin, etMin, 20.);
+  h_hcalRecHitBcSumEtConeDR04_miniAOD_[0][2] =
+      iBooker.book1D(histname + "Endcap_miniAOD", "hcalRecHitBcSumEtConeDR04: Endcap ", etBin, etMin, 20.);
   histname = "isoTrkSolidConeDR04";
   h_isoTrkSolidConeDR04_miniAOD_[0][0] =
       iBooker.book1D(histname + "All_miniAOD", "isoTrkSolidConeDR04: All Ecal", etBin, etMin, etMax * 0.1);
@@ -3785,8 +3785,8 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
       float hOverE = matchingPho->hadronicOverEm();
       float newhOverE = matchingPho->hadTowOverEm();
       float ecalIso = matchingPho->ecalRecHitSumEtConeDR04();
-      float hcalIso = matchingPho->hcalTowerSumEtConeDR04();
-      float newhcalIso = matchingPho->hcalTowerSumEtBcConeDR04();
+      float hcalIso = matchingPho->hcalRecHitSumEtConeDR04();
+      float newhcalIso = matchingPho->hcalRecHitSumEtBcConeDR04();
       float trkIso = matchingPho->trkSumPtSolidConeDR04();
       float nIsoTrk = matchingPho->nTrkSolidConeDR04();
       // PF related quantities
@@ -3871,23 +3871,23 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
       if (!isRunCentrally_) {
         h2_ecalRecHitSumEtConeDR04VsEta_[0]->Fill(mcEta_, ecalIso);
         h2_ecalRecHitSumEtConeDR04VsEt_[0]->Fill((*mcPho).fourMomentum().et(), ecalIso);
-        h2_hcalTowerSumEtConeDR04VsEta_[0]->Fill(mcEta_, hcalIso);
-        h2_hcalTowerSumEtConeDR04VsEt_[0]->Fill((*mcPho).fourMomentum().et(), hcalIso);
+        h2_hcalRecHitSumEtConeDR04VsEta_[0]->Fill(mcEta_, hcalIso);
+        h2_hcalRecHitSumEtConeDR04VsEt_[0]->Fill((*mcPho).fourMomentum().et(), hcalIso);
       }
       p_ecalRecHitSumEtConeDR04VsEta_[0]->Fill(mcEta_, ecalIso);
       if (!isRunCentrally_)
         p_ecalRecHitSumEtConeDR04VsEt_[0]->Fill((*mcPho).fourMomentum().et(), ecalIso);
       //
-      h_hcalTowerSumEtConeDR04_[type][0]->Fill(hcalIso);
-      p_hcalTowerSumEtConeDR04VsEta_[0]->Fill(mcEta_, hcalIso);
+      h_hcalRecHitSumEtConeDR04_[type][0]->Fill(hcalIso);
+      p_hcalRecHitSumEtConeDR04VsEta_[0]->Fill(mcEta_, hcalIso);
       if (!isRunCentrally_)
-        p_hcalTowerSumEtConeDR04VsEt_[0]->Fill((*mcPho).fourMomentum().et(), hcalIso);
+        p_hcalRecHitSumEtConeDR04VsEt_[0]->Fill((*mcPho).fourMomentum().et(), hcalIso);
       //
       if (!isRunCentrally_)
-        h_hcalTowerBcSumEtConeDR04_[type][0]->Fill(newhcalIso);
-      p_hcalTowerBcSumEtConeDR04VsEta_[0]->Fill(mcEta_, newhcalIso);
+        h_hcalRecHitBcSumEtConeDR04_[type][0]->Fill(newhcalIso);
+      p_hcalRecHitBcSumEtConeDR04VsEta_[0]->Fill(mcEta_, newhcalIso);
       if (!isRunCentrally_)
-        p_hcalTowerBcSumEtConeDR04VsEt_[0]->Fill((*mcPho).fourMomentum().et(), newhcalIso);
+        p_hcalRecHitBcSumEtConeDR04VsEt_[0]->Fill((*mcPho).fourMomentum().et(), newhcalIso);
       //
       h_isoTrkSolidConeDR04_[type][0]->Fill(trkIso);
       h_nTrkSolidConeDR04_[type][0]->Fill(nIsoTrk);
@@ -3958,7 +3958,7 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
 
         if (!isRunCentrally_) {
           h2_ecalRecHitSumEtConeDR04VsEta_[1]->Fill(mcEta_, ecalIso);
-          h2_hcalTowerSumEtConeDR04VsEta_[1]->Fill(mcEta_, hcalIso);
+          h2_hcalRecHitSumEtConeDR04VsEta_[1]->Fill(mcEta_, hcalIso);
           h2_isoTrkSolidConeDR04VsEta_[1]->Fill(mcEta_, trkIso);
           h2_isoTrkSolidConeDR04VsEt_[1]->Fill((*mcPho).fourMomentum().et(), trkIso);
           h2_nTrkSolidConeDR04VsEta_[1]->Fill(mcEta_, nIsoTrk);
@@ -3966,7 +3966,7 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
         }
         p_ecalRecHitSumEtConeDR04VsEta_[1]->Fill(mcEta_, ecalIso);
         if (!isRunCentrally_)
-          p_hcalTowerSumEtConeDR04VsEta_[1]->Fill(mcEta_, hcalIso);
+          p_hcalRecHitSumEtConeDR04VsEta_[1]->Fill(mcEta_, hcalIso);
       }
 
       if (photonE / (*mcPho).fourMomentum().e() < 0.3 && photonE / (*mcPho).fourMomentum().e() > 0.1) {
@@ -4011,10 +4011,10 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
         h_newhOverE_[type][1]->Fill(newhOverE);
         h_ecalRecHitSumEtConeDR04_[type][1]->Fill(ecalIso);
         p_ecalRecHitSumEtConeDR04VsEt_[1]->Fill((*mcPho).fourMomentum().et(), ecalIso);
-        h_hcalTowerSumEtConeDR04_[type][1]->Fill(hcalIso);
-        p_hcalTowerSumEtConeDR04VsEt_[1]->Fill((*mcPho).fourMomentum().et(), hcalIso);
-        h_hcalTowerBcSumEtConeDR04_[type][1]->Fill(newhcalIso);
-        p_hcalTowerBcSumEtConeDR04VsEt_[1]->Fill((*mcPho).fourMomentum().et(), newhcalIso);
+        h_hcalRecHitSumEtConeDR04_[type][1]->Fill(hcalIso);
+        p_hcalRecHitSumEtConeDR04VsEt_[1]->Fill((*mcPho).fourMomentum().et(), hcalIso);
+        h_hcalRecHitBcSumEtConeDR04_[type][1]->Fill(newhcalIso);
+        p_hcalRecHitBcSumEtConeDR04VsEt_[1]->Fill((*mcPho).fourMomentum().et(), newhcalIso);
         h_isoTrkSolidConeDR04_[type][1]->Fill(trkIso);
         h_nTrkSolidConeDR04_[type][1]->Fill(nIsoTrk);
         h_chHadIso_[1]->Fill(chargedHadIso);
@@ -4037,7 +4037,7 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
           h2_eResVsR9_[1]->Fill(r9, photonE / (*mcPho).fourMomentum().e());
           h2_sceResVsR9_[1]->Fill(r9, matchingPho->superCluster()->energy() / (*mcPho).fourMomentum().e());
           h2_ecalRecHitSumEtConeDR04VsEt_[1]->Fill((*mcPho).fourMomentum().et(), ecalIso);
-          h2_hcalTowerSumEtConeDR04VsEt_[1]->Fill((*mcPho).fourMomentum().et(), hcalIso);
+          h2_hcalRecHitSumEtConeDR04VsEt_[1]->Fill((*mcPho).fourMomentum().et(), hcalIso);
           h2_eResVsEt_[1][0]->Fill((*mcPho).fourMomentum().et(), photonE / (*mcPho).fourMomentum().e());
         }
         p_eResVsEt_[1][0]->Fill((*mcPho).fourMomentum().et(), photonE / (*mcPho).fourMomentum().e());
@@ -4083,10 +4083,10 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
         h_newhOverE_[type][2]->Fill(newhOverE);
         h_ecalRecHitSumEtConeDR04_[type][2]->Fill(ecalIso);
         p_ecalRecHitSumEtConeDR04VsEt_[2]->Fill((*mcPho).fourMomentum().et(), ecalIso);
-        h_hcalTowerSumEtConeDR04_[type][2]->Fill(hcalIso);
-        p_hcalTowerSumEtConeDR04VsEt_[2]->Fill((*mcPho).fourMomentum().et(), hcalIso);
-        h_hcalTowerBcSumEtConeDR04_[type][2]->Fill(newhcalIso);
-        p_hcalTowerBcSumEtConeDR04VsEt_[2]->Fill((*mcPho).fourMomentum().et(), newhcalIso);
+        h_hcalRecHitSumEtConeDR04_[type][2]->Fill(hcalIso);
+        p_hcalRecHitSumEtConeDR04VsEt_[2]->Fill((*mcPho).fourMomentum().et(), hcalIso);
+        h_hcalRecHitBcSumEtConeDR04_[type][2]->Fill(newhcalIso);
+        p_hcalRecHitBcSumEtConeDR04VsEt_[2]->Fill((*mcPho).fourMomentum().et(), newhcalIso);
         h_isoTrkSolidConeDR04_[type][2]->Fill(trkIso);
         h_nTrkSolidConeDR04_[type][2]->Fill(nIsoTrk);
         h_chHadIso_[2]->Fill(chargedHadIso);
@@ -4109,7 +4109,7 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
           h2_eResVsR9_[2]->Fill(r9, photonE / (*mcPho).fourMomentum().e());
           h2_sceResVsR9_[2]->Fill(r9, matchingPho->superCluster()->energy() / (*mcPho).fourMomentum().e());
           h2_ecalRecHitSumEtConeDR04VsEt_[2]->Fill((*mcPho).fourMomentum().et(), ecalIso);
-          h2_hcalTowerSumEtConeDR04VsEt_[2]->Fill((*mcPho).fourMomentum().et(), hcalIso);
+          h2_hcalRecHitSumEtConeDR04VsEt_[2]->Fill((*mcPho).fourMomentum().et(), hcalIso);
           h2_eResVsEt_[2][0]->Fill((*mcPho).fourMomentum().et(), photonE / (*mcPho).fourMomentum().e());
         }
 
@@ -5098,7 +5098,7 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
     float sigmaIetaIeta = matchingPho.sigmaIetaIeta();
     float hOverE = matchingPho.hadronicOverEm();
     float ecalIso = matchingPho.ecalRecHitSumEtConeDR04();
-    float hcalIso = matchingPho.hcalTowerSumEtConeDR04();
+    float hcalIso = matchingPho.hcalRecHitSumEtConeDR04();
     float trkIso = matchingPho.trkSumPtSolidConeDR04();
     float nIsoTrk = matchingPho.nTrkSolidConeDR04();
     std::vector<std::pair<DetId, float> >::const_iterator rhIt;
@@ -5144,7 +5144,7 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
     h_sigmaIetaIetaBkg_[0]->Fill(sigmaIetaIeta);
     h_hOverEBkg_[0]->Fill(hOverE);
     h_ecalRecHitSumEtConeDR04Bkg_[0]->Fill(ecalIso);
-    h_hcalTowerSumEtConeDR04Bkg_[0]->Fill(hcalIso);
+    h_hcalRecHitSumEtConeDR04Bkg_[0]->Fill(hcalIso);
     h_isoTrkSolidConeDR04Bkg_[0]->Fill(trkIso);
     h_nTrkSolidConeDR04Bkg_[0]->Fill(nIsoTrk);
 
@@ -5173,12 +5173,12 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
     if (!isRunCentrally_) {
       h2_ecalRecHitSumEtConeDR04VsEtaBkg_->Fill(mcJetEta_, ecalIso);
       h2_ecalRecHitSumEtConeDR04VsEtBkg_[0]->Fill(mcJetPt, ecalIso);
-      h2_hcalTowerSumEtConeDR04VsEtaBkg_->Fill(mcJetEta_, hcalIso);
-      h2_hcalTowerSumEtConeDR04VsEtBkg_[0]->Fill(mcJetPt, hcalIso);
+      h2_hcalRecHitSumEtConeDR04VsEtaBkg_->Fill(mcJetEta_, hcalIso);
+      h2_hcalRecHitSumEtConeDR04VsEtBkg_[0]->Fill(mcJetPt, hcalIso);
       p_ecalRecHitSumEtConeDR04VsEtaBkg_->Fill(mcJetEta_, ecalIso);
       p_ecalRecHitSumEtConeDR04VsEtBkg_[0]->Fill(mcJetPt, ecalIso);
-      p_hcalTowerSumEtConeDR04VsEtaBkg_->Fill(mcJetEta_, hcalIso);
-      p_hcalTowerSumEtConeDR04VsEtBkg_[0]->Fill(mcJetPt, hcalIso);
+      p_hcalRecHitSumEtConeDR04VsEtaBkg_->Fill(mcJetEta_, hcalIso);
+      p_hcalRecHitSumEtConeDR04VsEtBkg_[0]->Fill(mcJetPt, hcalIso);
       p_isoTrkSolidConeDR04VsEtaBkg_->Fill(mcJetEta_, trkIso);
       p_isoTrkSolidConeDR04VsEtBkg_[0]->Fill(mcJetPt, trkIso);
       p_nTrkSolidConeDR04VsEtaBkg_->Fill(mcJetEta_, nIsoTrk);
@@ -5197,7 +5197,7 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
       h_sigmaIetaIetaBkg_[1]->Fill(sigmaIetaIeta);
       h_hOverEBkg_[1]->Fill(hOverE);
       h_ecalRecHitSumEtConeDR04Bkg_[1]->Fill(ecalIso);
-      h_hcalTowerSumEtConeDR04Bkg_[1]->Fill(hcalIso);
+      h_hcalRecHitSumEtConeDR04Bkg_[1]->Fill(hcalIso);
       h_isoTrkSolidConeDR04Bkg_[1]->Fill(trkIso);
       h_nTrkSolidConeDR04Bkg_[1]->Fill(nIsoTrk);
 
@@ -5206,10 +5206,10 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
         h2_isoTrkSolidConeDR04VsEtBkg_[1]->Fill(mcJetPt, trkIso);
         h2_nTrkSolidConeDR04VsEtBkg_[1]->Fill(mcJetPt, nIsoTrk);
         h2_ecalRecHitSumEtConeDR04VsEtBkg_[1]->Fill(mcJetPt, ecalIso);
-        h2_hcalTowerSumEtConeDR04VsEtBkg_[1]->Fill(mcJetPt, hcalIso);
+        h2_hcalRecHitSumEtConeDR04VsEtBkg_[1]->Fill(mcJetPt, hcalIso);
         p_sigmaIetaIetaVsEtBkg_[1]->Fill(mcJetPt, sigmaIetaIeta);
         p_ecalRecHitSumEtConeDR04VsEtBkg_[1]->Fill(mcJetPt, ecalIso);
-        p_hcalTowerSumEtConeDR04VsEtBkg_[1]->Fill(mcJetPt, hcalIso);
+        p_hcalRecHitSumEtConeDR04VsEtBkg_[1]->Fill(mcJetPt, hcalIso);
         p_isoTrkSolidConeDR04VsEtBkg_[1]->Fill(mcJetPt, trkIso);
         p_nTrkSolidConeDR04VsEtBkg_[1]->Fill(mcJetPt, nIsoTrk);
       }
@@ -5221,7 +5221,7 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
       h_sigmaIetaIetaBkg_[2]->Fill(sigmaIetaIeta);
       h_hOverEBkg_[2]->Fill(hOverE);
       h_ecalRecHitSumEtConeDR04Bkg_[2]->Fill(ecalIso);
-      h_hcalTowerSumEtConeDR04Bkg_[2]->Fill(hcalIso);
+      h_hcalRecHitSumEtConeDR04Bkg_[2]->Fill(hcalIso);
       h_isoTrkSolidConeDR04Bkg_[2]->Fill(trkIso);
       h_nTrkSolidConeDR04Bkg_[2]->Fill(nIsoTrk);
 
@@ -5230,10 +5230,10 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
         h2_isoTrkSolidConeDR04VsEtBkg_[2]->Fill(mcJetPt, trkIso);
         h2_nTrkSolidConeDR04VsEtBkg_[2]->Fill(mcJetPt, nIsoTrk);
         h2_ecalRecHitSumEtConeDR04VsEtBkg_[2]->Fill(mcJetPt, ecalIso);
-        h2_hcalTowerSumEtConeDR04VsEtBkg_[2]->Fill(mcJetPt, hcalIso);
+        h2_hcalRecHitSumEtConeDR04VsEtBkg_[2]->Fill(mcJetPt, hcalIso);
         p_sigmaIetaIetaVsEtBkg_[2]->Fill(mcJetPt, sigmaIetaIeta);
         p_ecalRecHitSumEtConeDR04VsEtBkg_[2]->Fill(mcJetPt, ecalIso);
-        p_hcalTowerSumEtConeDR04VsEtBkg_[2]->Fill(mcJetPt, hcalIso);
+        p_hcalRecHitSumEtConeDR04VsEtBkg_[2]->Fill(mcJetPt, hcalIso);
         p_isoTrkSolidConeDR04VsEtBkg_[2]->Fill(mcJetPt, trkIso);
         p_nTrkSolidConeDR04VsEtBkg_[2]->Fill(mcJetPt, nIsoTrk);
       }
@@ -5367,8 +5367,8 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
     float hOverE = matchingPho->hadronicOverEm();
     float newhOverE = matchingPho->hadTowOverEm();
     float ecalIso = matchingPho->ecalRecHitSumEtConeDR04();
-    float hcalIso = matchingPho->hcalTowerSumEtConeDR04();
-    float newhcalIso = matchingPho->hcalTowerSumEtBcConeDR04();
+    float hcalIso = matchingPho->hcalRecHitSumEtConeDR04();
+    float newhcalIso = matchingPho->hcalRecHitSumEtBcConeDR04();
     float trkIso = matchingPho->trkSumPtSolidConeDR04();
     float nIsoTrk = matchingPho->nTrkSolidConeDR04();
     // PF related quantities
@@ -5400,8 +5400,8 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
       h_newhOverE_miniAOD_[0][0]->Fill(newhOverE);
 
       h_ecalRecHitSumEtConeDR04_miniAOD_[0][0]->Fill(ecalIso);
-      h_hcalTowerSumEtConeDR04_miniAOD_[0][0]->Fill(hcalIso);
-      h_hcalTowerBcSumEtConeDR04_miniAOD_[0][0]->Fill(newhcalIso);
+      h_hcalRecHitSumEtConeDR04_miniAOD_[0][0]->Fill(hcalIso);
+      h_hcalRecHitBcSumEtConeDR04_miniAOD_[0][0]->Fill(newhcalIso);
       h_isoTrkSolidConeDR04_miniAOD_[0][0]->Fill(trkIso);
       h_nTrkSolidConeDR04_miniAOD_[0][0]->Fill(nIsoTrk);
 
@@ -5427,8 +5427,8 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
         h_hOverE_miniAOD_[0][1]->Fill(hOverE);
         h_newhOverE_miniAOD_[0][1]->Fill(newhOverE);
         h_ecalRecHitSumEtConeDR04_miniAOD_[0][1]->Fill(ecalIso);
-        h_hcalTowerSumEtConeDR04_miniAOD_[0][1]->Fill(hcalIso);
-        h_hcalTowerBcSumEtConeDR04_miniAOD_[0][1]->Fill(newhcalIso);
+        h_hcalRecHitSumEtConeDR04_miniAOD_[0][1]->Fill(hcalIso);
+        h_hcalRecHitBcSumEtConeDR04_miniAOD_[0][1]->Fill(newhcalIso);
         h_isoTrkSolidConeDR04_miniAOD_[0][1]->Fill(trkIso);
         h_nTrkSolidConeDR04_miniAOD_[0][1]->Fill(nIsoTrk);
         h_chHadIso_miniAOD_[1]->Fill(chargedHadIso);
@@ -5450,8 +5450,8 @@ void PhotonValidator::analyze(const edm::Event& e, const edm::EventSetup& esup) 
         h_hOverE_miniAOD_[0][2]->Fill(hOverE);
         h_newhOverE_miniAOD_[0][2]->Fill(newhOverE);
         h_ecalRecHitSumEtConeDR04_miniAOD_[0][2]->Fill(ecalIso);
-        h_hcalTowerSumEtConeDR04_miniAOD_[0][2]->Fill(hcalIso);
-        h_hcalTowerBcSumEtConeDR04_miniAOD_[0][2]->Fill(newhcalIso);
+        h_hcalRecHitSumEtConeDR04_miniAOD_[0][2]->Fill(hcalIso);
+        h_hcalRecHitBcSumEtConeDR04_miniAOD_[0][2]->Fill(newhcalIso);
         h_isoTrkSolidConeDR04_miniAOD_[0][2]->Fill(trkIso);
         h_nTrkSolidConeDR04_miniAOD_[0][2]->Fill(nIsoTrk);
         h_chHadIso_miniAOD_[2]->Fill(chargedHadIso);

@@ -145,8 +145,8 @@ namespace pat {
     float trackIso() const { return dr04TkSumPt(); }
     /// Overload of pat::Lepton::ecalIso(); returns the value of the summed Et of all recHits in the ecal in a cone of deltaR<0.4
     float ecalIso() const { return dr04EcalRecHitSumEt(); }
-    /// Overload of pat::Lepton::hcalIso(); returns the value of the summed Et of all caloTowers in the hcal in a cone of deltaR<0.4
-    float hcalIso() const { return dr04HcalTowerSumEt(); }
+    /// Overload of pat::Lepton::hcalIso(); returns the value of the summed Et of all recHits in the hcal in a cone of deltaR<0.4
+    float hcalIso() const { return dr04HcalRecHitSumEt(); }
     /// Overload of pat::Lepton::caloIso(); returns the sum of ecalIso() and hcalIso
     float caloIso() const { return ecalIso() + hcalIso(); }
     /// returns PUPPI isolations

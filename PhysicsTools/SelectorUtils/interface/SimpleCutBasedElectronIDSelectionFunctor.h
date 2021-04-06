@@ -467,7 +467,7 @@ public:  // interface
     Double_t eleET = electron.p4().Pt();
     Double_t trackIso = electron.dr03TkSumPt() / eleET;
     Double_t ecalIso = electron.dr03EcalRecHitSumEt() / eleET;
-    Double_t hcalIso = electron.dr03HcalTowerSumEt() / eleET;
+    Double_t hcalIso = electron.dr03HcalRecHitSumEt() / eleET;
     Double_t sihih = electron.sigmaIetaIeta();
     Double_t Dphi = electron.deltaPhiSuperClusterTrackAtVtx();
     Double_t Deta = electron.deltaEtaSuperClusterTrackAtVtx();
@@ -475,10 +475,10 @@ public:  // interface
     Double_t cIso = 0;
     if (electron.isEB()) {
       cIso =
-          (electron.dr03TkSumPt() + std::max(0., electron.dr03EcalRecHitSumEt() - 1.) + electron.dr03HcalTowerSumEt()) /
+          (electron.dr03TkSumPt() + std::max(0., electron.dr03EcalRecHitSumEt() - 1.) + electron.dr03HcalRecHitSumEt()) /
           eleET;
     } else {
-      cIso = (electron.dr03TkSumPt() + electron.dr03EcalRecHitSumEt() + electron.dr03HcalTowerSumEt()) / eleET;
+      cIso = (electron.dr03TkSumPt() + electron.dr03EcalRecHitSumEt() + electron.dr03HcalRecHitSumEt()) / eleET;
     }
     Int_t innerHits = electron.gsfTrack()->hitPattern().numberOfLostHits(reco::HitPattern::MISSING_INNER_HITS);
     // in 39 conversion rejection variables are accessible from Gsf electron

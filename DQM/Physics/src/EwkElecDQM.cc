@@ -720,7 +720,7 @@ hltConfigProvider.prescaleValue(ps, trigName) ;
     // Isolation cuts
     // double isovar = mu.isolationR03().sumPt;
     double ecalisovar = elec.dr03EcalRecHitSumEt();  // picked one set!
-    double hcalisovar = elec.dr03HcalTowerSumEt();   // try others if
+    double hcalisovar = elec.dr03HcalRecHitSumEt();   // try others if
     double trkisovar = elec.dr04TkSumPt();           // doesn't work
     // if (isCombinedIso_) {
     // isovar += mu.isolationR03().emEt;

@@ -232,7 +232,7 @@ void PatPhotonSimpleAnalyzer::analyze(const edm::Event& evt, const edm::EventSet
       ///////////////////////////////////////////////////////
       // PhotonID Variables
       h_isoEcalRecHit_->Fill(currentPhoton.ecalRecHitSumEtConeDR04());
-      h_isoHcalRecHit_->Fill(currentPhoton.hcalTowerSumEtConeDR04());
+      h_isoHcalRecHit_->Fill(currentPhoton.hcalRecHitSumEtConeDR04());
       h_trk_pt_solid_->Fill(currentPhoton.trkSumPtSolidConeDR04());
       h_trk_pt_hollow_->Fill(currentPhoton.trkSumPtHollowConeDR04());
       h_ntrk_solid_->Fill(currentPhoton.nTrkSolidConeDR04());
@@ -264,7 +264,7 @@ void PatPhotonSimpleAnalyzer::analyze(const edm::Event& evt, const edm::EventSet
       ///////////////////////////////////////////////////////
       if (createPhotonTTree_) {
         recPhoton.isolationEcalRecHit = currentPhoton.ecalRecHitSumEtConeDR04();
-        recPhoton.isolationHcalRecHit = currentPhoton.hcalTowerSumEtConeDR04();
+        recPhoton.isolationHcalRecHit = currentPhoton.hcalRecHitSumEtConeDR04();
         recPhoton.isolationSolidTrkCone = currentPhoton.trkSumPtSolidConeDR04();
         recPhoton.isolationHollowTrkCone = currentPhoton.trkSumPtHollowConeDR04();
         recPhoton.nTrkSolidCone = currentPhoton.nTrkSolidConeDR04();

@@ -288,7 +288,7 @@ void PhotonIDSimpleAnalyzer::analyze(const edm::Event& evt, const edm::EventSetu
       ///////////////////////////////////////////////////////
       // PhotonID Variables
       h_isoEcalRecHit_->Fill(pho->ecalRecHitSumEtConeDR04());
-      h_isoHcalRecHit_->Fill(pho->hcalTowerSumEtConeDR04());
+      h_isoHcalRecHit_->Fill(pho->hcalRecHitSumEtConeDR04());
       h_trk_pt_solid_->Fill(pho->trkSumPtSolidConeDR04());
       h_trk_pt_hollow_->Fill(pho->trkSumPtHollowConeDR04());
       h_ntrk_solid_->Fill(pho->nTrkSolidConeDR04());
@@ -321,7 +321,7 @@ void PhotonIDSimpleAnalyzer::analyze(const edm::Event& evt, const edm::EventSetu
       ///////////////////////////////////////////////////////
       if (createPhotonTTree_) {
         recPhoton.isolationEcalRecHit = pho->ecalRecHitSumEtConeDR04();
-        recPhoton.isolationHcalRecHit = pho->hcalTowerSumEtConeDR04();
+        recPhoton.isolationHcalRecHit = pho->hcalRecHitSumEtConeDR04();
         recPhoton.isolationSolidTrkCone = pho->trkSumPtSolidConeDR04();
         recPhoton.isolationHollowTrkCone = pho->trkSumPtHollowConeDR04();
         recPhoton.nTrkSolidCone = pho->nTrkSolidConeDR04();

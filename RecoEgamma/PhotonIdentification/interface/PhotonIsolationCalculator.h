@@ -7,6 +7,10 @@
 #include "DataFormats/EgammaCandidates/interface/Photon.h"
 #include "FWCore/Utilities/interface/Visibility.h"
 
+#include "Geometry/Records/interface/CaloGeometryRecord.h"
+#include "Geometry/CaloGeometry/interface/CaloGeometry.h"
+#include "DataFormats/HcalRecHit/interface/HcalRecHitCollections.h"
+
 #include "CondFormats/EcalObjects/interface/EcalChannelStatus.h"
 
 #include <vector>
@@ -65,25 +69,20 @@ private:
                                 bool vetoClusteredHits,
                                 bool useNumCrystals) const dso_internal;
 
-  double calculateHcalTowerIso(const reco::Photon* photon,
-                               const edm::Event& iEvent,
-                               const edm::EventSetup& iSetup,
-                               double RCone,
-                               double RConeInner,
-                               double eMin,
-                               signed int depth) const dso_internal;
-
-  double calculateHcalTowerIso(const reco::Photon* photon,
-                               const edm::Event& iEvent,
-                               const edm::EventSetup& iSetup,
-                               double RCone,
-                               double eMin,
-                               signed int depth) const dso_internal;
+  double calculateHcalRecHitIso(const reco::Photon* photon,
+                                const CaloGeometry& geometry,
+                                const HBHERecHitCollection &hcalRecHits,
+                                double RCone,
+                                double RConeInner,
+                                double eMin,
+                                int depth) const dso_internal;
 
 private:
   edm::EDGetToken barrelecalCollection_;
   edm::EDGetToken endcapecalCollection_;
-  edm::EDGetToken hcalCollection_;
+  edm::EDGetTokenT<HBHERecHitCollection> hcalRecHitsTag_;
+
+  edm::ESGetToken<CaloGeometry, CaloGeometryRecord> caloGeometryToken_;
 
   edm::EDGetToken trackInputTag_;
   edm::EDGetToken beamSpotProducerTag_;
@@ -92,19 +91,19 @@ private:
   bool vetoClusteredEcalHits_;
   bool useNumCrystals_;
 
-  double trkIsoBarrelRadiusA_[6];
-  double ecalIsoBarrelRadiusA_[5];
-  double hcalIsoBarrelRadiusA_[9];
-  double trkIsoBarrelRadiusB_[6];
-  double ecalIsoBarrelRadiusB_[5];
-  double hcalIsoBarrelRadiusB_[9];
+  std::array<double, 6> trkIsoBarrelRadiusA_;
+  std::array<double, 5> ecalIsoBarrelRadiusA_;
+  std::array<double, 21> hcalIsoBarrelRadiusA_;
+  std::array<double, 6> trkIsoBarrelRadiusB_;
+  std::array<double, 5> ecalIsoBarrelRadiusB_;
+  std::array<double, 21> hcalIsoBarrelRadiusB_;
 
-  double trkIsoEndcapRadiusA_[6];
-  double ecalIsoEndcapRadiusA_[5];
-  double hcalIsoEndcapRadiusA_[9];
-  double trkIsoEndcapRadiusB_[6];
-  double ecalIsoEndcapRadiusB_[5];
-  double hcalIsoEndcapRadiusB_[9];
+  std::array<double, 6> trkIsoEndcapRadiusA_;
+  std::array<double, 5> ecalIsoEndcapRadiusA_;
+  std::array<double, 21> hcalIsoEndcapRadiusA_;
+  std::array<double, 6> trkIsoEndcapRadiusB_;
+  std::array<double, 5> ecalIsoEndcapRadiusB_;
+  std::array<double, 21> hcalIsoEndcapRadiusB_;
 
   std::vector<int> flagsEB_;
   std::vector<int> flagsEE_;

@@ -84,7 +84,7 @@ void EGPhotonImporter::importToBlock(const edm::Event& e, BlockElementImporterBa
         scbe->setPhotonRef(phoref);
         scbe->setTrackIso(photon->trkSumPtHollowConeDR04());
         scbe->setEcalIso(photon->ecalRecHitSumEtConeDR04());
-        scbe->setHcalIso(photon->hcalTowerSumEtConeDR04());
+        scbe->setHcalIso(photon->hcalRecHitSumEtConeDR04());
         scbe->setHoE(photon->hadronicOverEm());
       } else {
         scbe = new reco::PFBlockElementSuperCluster(scref);
@@ -93,7 +93,7 @@ void EGPhotonImporter::importToBlock(const edm::Event& e, BlockElementImporterBa
         scbe->setPhotonRef(phoref);
         scbe->setTrackIso(photon->trkSumPtHollowConeDR04());
         scbe->setEcalIso(photon->ecalRecHitSumEtConeDR04());
-        scbe->setHcalIso(photon->hcalTowerSumEtConeDR04());
+        scbe->setHcalIso(photon->hcalRecHitSumEtConeDR04());
         scbe->setHoE(photon->hadronicOverEm());
         SCs_end = elems.insert(SCs_end, ElementType(scbe));
         ++SCs_end;  // point to element *after* the new one

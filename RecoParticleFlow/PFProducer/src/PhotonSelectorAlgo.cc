@@ -49,7 +49,7 @@ bool PhotonSelectorAlgo::passPhotonSelection(const reco::Photon& photon) const {
       return false;
 
     // HCAL iso
-    if (photon.hcalTowerSumEtConeDR04() > c_iso_hcal_a_ + c_iso_hcal_b_ * photonPt)
+    if (photon.hcalRecHitSumEtConeDR04() > c_iso_hcal_a_ + c_iso_hcal_b_ * photonPt)
       return false;
   }
   if (choice_ > 0.99) {
@@ -57,7 +57,7 @@ bool PhotonSelectorAlgo::passPhotonSelection(const reco::Photon& photon) const {
     if (photon.hadronicOverEm() > loose_hoe_)
       return false;
     //Isolation variables in 0.3 cone combined
-    if (photon.trkSumPtHollowConeDR03() + photon.ecalRecHitSumEtConeDR03() + photon.hcalTowerSumEtConeDR03() >
+    if (photon.trkSumPtHollowConeDR03() + photon.ecalRecHitSumEtConeDR03() + photon.hcalRecHitSumEtConeDR03() >
         comb_iso_)
       return false;
   }

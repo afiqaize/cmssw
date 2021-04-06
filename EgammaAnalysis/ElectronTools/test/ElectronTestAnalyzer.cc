@@ -585,12 +585,12 @@ bool ElectronTestAnalyzer::trainTrigPresel(const reco::GsfElectron& ele) {
   bool myTrigPresel = false;
   if (std::abs(ele.superCluster()->eta()) < 1.479) {
     if (ele.sigmaIetaIeta() < 0.014 && ele.hadronicOverEm() < 0.15 && ele.dr03TkSumPt() / ele.pt() < 0.2 &&
-        ele.dr03EcalRecHitSumEt() / ele.pt() < 0.2 && ele.dr03HcalTowerSumEt() / ele.pt() < 0.2 &&
+        ele.dr03EcalRecHitSumEt() / ele.pt() < 0.2 && ele.dr03HcalRecHitSumEt() / ele.pt() < 0.2 &&
         ele.gsfTrack()->hitPattern().numberOfLostHits(reco::HitPattern::MISSING_INNER_HITS) == 0)
       myTrigPresel = true;
   } else {
     if (ele.sigmaIetaIeta() < 0.035 && ele.hadronicOverEm() < 0.10 && ele.dr03TkSumPt() / ele.pt() < 0.2 &&
-        ele.dr03EcalRecHitSumEt() / ele.pt() < 0.2 && ele.dr03HcalTowerSumEt() / ele.pt() < 0.2 &&
+        ele.dr03EcalRecHitSumEt() / ele.pt() < 0.2 && ele.dr03HcalRecHitSumEt() / ele.pt() < 0.2 &&
         ele.gsfTrack()->hitPattern().numberOfLostHits(reco::HitPattern::MISSING_INNER_HITS) == 0)
       myTrigPresel = true;
   }
@@ -606,15 +606,6 @@ void ElectronTestAnalyzer::evaluate_mvas(const edm::Event& iEvent, const edm::Ev
   edm::Handle<reco::VertexCollection> hVertex;
   iEvent.getByToken(vertexToken_, hVertex);
   const reco::VertexCollection* pvCol = hVertex.product();
-
-  // FIXME: unused variable giving compilation warnings/errors
-  //   Handle<double> hRho;
-  //   iEvent.getByToken(eventrhoToken_,hRho);
-  //   double Rho = *hRho;
-  //
-  //   Handle<reco::PFCandidateCollection> hPfCandProduct;
-  // 	iEvent.getByToken(pfCandToken_, hPfCandProduct);
-  //   const reco::PFCandidateCollection &inPfCands = *(hPfCandProduct.product());
 
   edm::Handle<reco::GsfElectronCollection> theEGammaCollection;
   iEvent.getByToken(gsfEleToken_, theEGammaCollection);

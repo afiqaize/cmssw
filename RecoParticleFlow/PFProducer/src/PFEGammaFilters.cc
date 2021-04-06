@@ -76,30 +76,29 @@ bool PFEGammaFilters::passPhotonSelection(const reco::Photon& photon) const {
   // Photon ET
   if (photon.pt() < ph_Et_)
     return false;
-  bool validHoverE = photon.hadTowOverEmValid();
   if (debug_)
     std::cout << "PFEGammaFilters:: photon pt " << photon.pt() << "   eta, phi " << photon.eta() << ", " << photon.phi()
               << "   isoDr03 "
-              << (photon.trkSumPtHollowConeDR03() + photon.ecalRecHitSumEtConeDR03() + photon.hcalTowerSumEtConeDR03())
+              << (photon.trkSumPtHollowConeDR03() + photon.ecalRecHitSumEtConeDR03() + photon.hcalRecHitSumEtConeDR03())
               << " (cut: " << ph_combIso_ << ")"
-              << "   H/E " << photon.hadTowOverEm() << " (valid? " << validHoverE << ", cut: " << ph_loose_hoe_ << ")"
+              << "   H/E " << photon.hcalOverEcalBc() << ", cut: " << ph_loose_hoe_ << ")"
               << "   s(ieie) " << photon.sigmaIetaIeta()
               << " (cut: " << (photon.isEB() ? ph_sietaieta_eb_ : ph_sietaieta_ee_) << ")"
               << "   isoTrkDr03Solid " << (photon.trkSumPtSolidConeDR03()) << " (cut: "
-              << (validHoverE || !badHcal_phoEnable_
+              << (!badHcal_phoEnable_
                       ? -1
                       : badHcal_phoTrkSolidConeIso_offs_ + badHcal_phoTrkSolidConeIso_slope_ * photon.pt())
               << ")" << std::endl;
 
-  if (photon.hadTowOverEm() > ph_loose_hoe_)
+  if (photon.hcalOverEcalBc() > ph_loose_hoe_)
     return false;
   //Isolation variables in 0.3 cone combined
-  if (photon.trkSumPtHollowConeDR03() + photon.ecalRecHitSumEtConeDR03() + photon.hcalTowerSumEtConeDR03() >
+  if (photon.trkSumPtHollowConeDR03() + photon.ecalRecHitSumEtConeDR03() + photon.hcalRecHitSumEtConeDR03() >
       ph_combIso_)
     return false;
 
   //patch for bad hcal
-  if (!validHoverE && badHcal_phoEnable_ &&
+  if (badHcal_phoEnable_ &&
       photon.trkSumPtSolidConeDR03() >
           badHcal_phoTrkSolidConeIso_offs_ + badHcal_phoTrkSolidConeIso_slope_ * photon.pt()) {
     return false;
@@ -120,14 +119,12 @@ bool PFEGammaFilters::passElectronSelection(const reco::GsfElectron& electron,
                                             const reco::PFCandidate& pfcand,
                                             const int& nVtx) const {
   // First simple selection, same as the Run1 to be improved in CMSSW_710
-
-  bool validHoverE = electron.hcalOverEcalValid();
   if (debug_)
     std::cout << "PFEGammaFilters:: Electron pt " << electron.pt() << " eta, phi " << electron.eta() << ", "
               << electron.phi() << " charge " << electron.charge() << " isoDr03 "
-              << (electron.dr03TkSumPt() + electron.dr03EcalRecHitSumEt() + electron.dr03HcalTowerSumEt())
-              << " mva_isolated " << electron.mva_Isolated() << " mva_e_pi " << electron.mva_e_pi() << " H/E_valid "
-              << validHoverE << " s(ieie) " << electron.full5x5_sigmaIetaIeta() << " H/E " << electron.hcalOverEcal()
+              << (electron.dr03TkSumPt() + electron.dr03EcalRecHitSumEt() + electron.dr03HcalRecHitSumEt())
+              << " mva_isolated " << electron.mva_Isolated() << " mva_e_pi " << electron.mva_e_pi()
+              << " s(ieie) " << electron.full5x5_sigmaIetaIeta() << " H/E " << electron.hcalOverEcal()
               << " 1/e-1/p " << (1.0 - electron.eSuperClusterOverP()) / electron.ecalEnergy() << " deta "
               << std::abs(electron.deltaEtaSeedClusterTrackAtVtx()) << " dphi "
               << std::abs(electron.deltaPhiSuperClusterTrackAtVtx()) << endl;
@@ -138,7 +135,7 @@ bool PFEGammaFilters::passElectronSelection(const reco::GsfElectron& electron,
   float electronPt = electron.pt();
 
   if (electronPt > ele_iso_pt_) {
-    double isoDr03 = electron.dr03TkSumPt() + electron.dr03EcalRecHitSumEt() + electron.dr03HcalTowerSumEt();
+    double isoDr03 = electron.dr03TkSumPt() + electron.dr03EcalRecHitSumEt() + electron.dr03HcalRecHitSumEt();
     double eleEta = fabs(electron.eta());
     if (eleEta <= 1.485 && isoDr03 < ele_iso_combIso_eb_) {
       if (electron.mva_Isolated() > ele_iso_mva_eb_)
@@ -151,7 +148,7 @@ bool PFEGammaFilters::passElectronSelection(const reco::GsfElectron& electron,
 
   //  cout << " My OLD MVA " << pfcand.mva_e_pi() << " MyNEW MVA " << electron.mva() << endl;
   if (electron.mva_e_pi() > ele_noniso_mva_) {
-    if (validHoverE || !badHcal_eleEnable_) {
+    if (!badHcal_eleEnable_) {
       passEleSelection = true;
     } else {
       bool EE = (std::abs(electron.eta()) > 1.485);  // for prefer consistency with above than with E/gamma for now
@@ -388,7 +385,7 @@ bool PFEGammaFilters::isPhotonSafeForJetMET(const reco::Photon& photon, const re
 //has to be insync here with GsfElectronAlgo::isPreselected
 bool PFEGammaFilters::passGsfElePreSelWithOnlyConeHadem(const reco::GsfElectron& ele) const {
   bool passCutBased = ele.passingCutBasedPreselection();
-  if (ele.hadronicOverEm() > ele_ecalDrivenHademPreselCut_)
+  if (ele.hcalOverEcal() > ele_ecalDrivenHademPreselCut_)
     passCutBased = false;
   bool passMVA = ele.passingMvaPreselection();
   if (!ele.ecalDrivenSeed()) {

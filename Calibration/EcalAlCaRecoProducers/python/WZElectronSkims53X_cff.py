@@ -87,7 +87,7 @@ PassingVeryLooseId = selectedElectrons.clone(
     " && (gsfTrack.trackerExpectedHitsInner.numberOfHits<=1)" #wrt std WP90 allowing 1 numberOfMissingExpectedHits
     " && ((isEB"
     " && ( dr03TkSumPt/p4.Pt <0.2 "#&& dr03EcalRecHitSumEt/p4.Pt < 0.3
-    " && dr03HcalTowerSumEt/p4.Pt  < 0.2 )"
+    " && dr03HcalRecHitSumEt/p4.Pt  < 0.2 )"
     " && (sigmaIetaIeta<0.01)"
     " && ( -0.15<deltaPhiSuperClusterTrackAtVtx<0.15 )"
     " && ( -0.007<deltaEtaSuperClusterTrackAtVtx<0.007 )"
@@ -96,7 +96,7 @@ PassingVeryLooseId = selectedElectrons.clone(
     " || (isEE"
     " && ( dr03TkSumPt/p4.Pt <0.2"
     #&& dr03EcalRecHitSumEt/p4.Pt < 0.3
-    " && dr03HcalTowerSumEt/p4.Pt  < 0.2 )"
+    " && dr03HcalRecHitSumEt/p4.Pt  < 0.2 )"
     " && (sigmaIetaIeta<0.03)"
     " && ( -0.10<deltaPhiSuperClusterTrackAtVtx<0.10 )"
     " && ( -0.009<deltaEtaSuperClusterTrackAtVtx<0.009 )"
@@ -110,7 +110,7 @@ PassingMediumId = selectedElectrons.clone(
     " && (gsfTrack.trackerExpectedHitsInner.numberOfHits<=1)" #wrt std WP90 allowing 1 numberOfMissingExpectedHits
     " && ((isEB"
     " && ( dr03TkSumPt/p4.Pt <0.2 "#&& dr03EcalRecHitSumEt/p4.Pt < 0.3
-    " && dr03HcalTowerSumEt/p4.Pt  < 0.2 )"
+    " && dr03HcalRecHitSumEt/p4.Pt  < 0.2 )"
     " && (sigmaIetaIeta<0.01)"
     " && ( -0.06<deltaPhiSuperClusterTrackAtVtx<0.06 )"
     " && ( -0.004<deltaEtaSuperClusterTrackAtVtx<0.004 )"
@@ -119,7 +119,7 @@ PassingMediumId = selectedElectrons.clone(
     " || (isEE"
     " && ( dr03TkSumPt/p4.Pt <0.2"
     #&& dr03EcalRecHitSumEt/p4.Pt < 0.3
-    " && dr03HcalTowerSumEt/p4.Pt  < 0.2 )"
+    " && dr03HcalRecHitSumEt/p4.Pt  < 0.2 )"
     " && (sigmaIetaIeta<0.03)"
     " && ( -0.03<deltaPhiSuperClusterTrackAtVtx<0.03 )"
     " && ( -0.007<deltaEtaSuperClusterTrackAtVtx<0.007 )"
@@ -134,7 +134,7 @@ PassingTightId = selectedElectrons.clone(
     " && (gsfTrack.trackerExpectedHitsInner.numberOfHits<=0)" #wrt std WP90 allowing 1 numberOfMissingExpectedHits
     " && ((isEB"
     " && ( dr03TkSumPt/p4.Pt <0.2 "#&& dr03EcalRecHitSumEt/p4.Pt < 0.3
-    " && dr03HcalTowerSumEt/p4.Pt  < 0.2 )"
+    " && dr03HcalRecHitSumEt/p4.Pt  < 0.2 )"
     " && (sigmaIetaIeta<0.01)"
     " && ( -0.03<deltaPhiSuperClusterTrackAtVtx<0.03 )"
     " && ( -0.004<deltaEtaSuperClusterTrackAtVtx<0.004 )"
@@ -143,7 +143,7 @@ PassingTightId = selectedElectrons.clone(
     " || (isEE"
     " && ( dr03TkSumPt/p4.Pt <0.2"
     #&& dr03EcalRecHitSumEt/p4.Pt < 0.3
-    " && dr03HcalTowerSumEt/p4.Pt  < 0.2 )"
+    " && dr03HcalRecHitSumEt/p4.Pt  < 0.2 )"
     " && (sigmaIetaIeta<0.03)"
     " && ( -0.02<deltaPhiSuperClusterTrackAtVtx<0.02 )"
     " && ( -0.007<deltaEtaSuperClusterTrackAtVtx<0.007 )"

@@ -566,8 +566,8 @@ void GammaJetAnalysis::analyze(const edm::Event& iEvent, const edm::EventSetup& 
     tagPho_pixelSeed_ = photon_tag.photon()->hasPixelSeed();
     tagPho_TrkIsoHollowDR04_ = photon_tag.photon()->trkSumPtHollowConeDR04();
     tagPho_EcalIsoDR04_ = photon_tag.photon()->ecalRecHitSumEtConeDR04();
-    tagPho_HcalIsoDR04_ = photon_tag.photon()->hcalTowerSumEtConeDR04();
-    tagPho_HcalIsoDR0412_ = photon_tag.photon()->hcalTowerSumEtConeDR04() +
+    tagPho_HcalIsoDR04_ = photon_tag.photon()->hcalRecHitSumEtConeDR04();
+    tagPho_HcalIsoDR0412_ = photon_tag.photon()->hcalRecHitSumEtConeDR04() +
                             (photon_tag.photon()->hadronicOverEm() - photon_tag.photon()->hadTowOverEm()) *
                                 (photon_tag.photon()->energy() / cosh((photon_tag.photon()->eta())));
 

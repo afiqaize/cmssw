@@ -209,14 +209,14 @@ process.PassingWP95.cut = cms.string(
     process.goodElectrons.cut.value() +
     " && (gsfTrack.hitPattern().numberOfLostHits(\'MISSING_INNER_HITS\') <= 1)"
     " && ((isEB"
-    " && ( dr03TkSumPt/p4.Pt < 0.15 && dr03EcalRecHitSumEt/p4.Pt < 2.0 && dr03HcalTowerSumEt/p4.Pt < 0.12 )" 
+    " && ( dr03TkSumPt/p4.Pt < 0.15 && dr03EcalRecHitSumEt/p4.Pt < 2.0 && dr03HcalRecHitSumEt/p4.Pt < 0.12 )" 
     " && (sigmaIetaIeta<0.01)"
     " && ( -0.8<deltaPhiSuperClusterTrackAtVtx<0.8 )"
     " && ( -0.007<deltaEtaSuperClusterTrackAtVtx<0.007 )"
     " && (hadronicOverEm<0.15)"
     ")"
     " || (isEE"
-    " && (dr03TkSumPt/p4.Pt < 0.08 && dr03EcalRecHitSumEt/p4.Pt < 0.06  && dr03HcalTowerSumEt/p4.Pt < 0.05 )"  
+    " && (dr03TkSumPt/p4.Pt < 0.08 && dr03EcalRecHitSumEt/p4.Pt < 0.06  && dr03HcalRecHitSumEt/p4.Pt < 0.05 )"  
     " && (sigmaIetaIeta<0.03)"
     " && ( -0.7<deltaPhiSuperClusterTrackAtVtx<0.7 )"
     " && ( -0.01<deltaEtaSuperClusterTrackAtVtx<0.01 )"
@@ -228,14 +228,14 @@ process.PassingWP90.cut = cms.string(
     process.goodElectrons.cut.value() +
     " && (gsfTrack.hitPattern().numberOfLostHits(\'MISSING_INNER_HITS\') == 0 && !(-0.02<convDist<0.02 && -0.02<convDcot<0.02))"
     " && ((isEB"
-    " && ( dr03TkSumPt/p4.Pt <0.12 && dr03EcalRecHitSumEt/p4.Pt < 0.09 && dr03HcalTowerSumEt/p4.Pt  < 0.1 )"
+    " && ( dr03TkSumPt/p4.Pt <0.12 && dr03EcalRecHitSumEt/p4.Pt < 0.09 && dr03HcalRecHitSumEt/p4.Pt  < 0.1 )"
     " && (sigmaIetaIeta<0.01)"
     " && ( -0.8<deltaPhiSuperClusterTrackAtVtx<0.8 )"
     " && ( -0.007<deltaEtaSuperClusterTrackAtVtx<0.007 )"
     " && (hadronicOverEm<0.12)"
     ")"
     " || (isEE"
-    " && ( dr03TkSumPt/p4.Pt <0.05 && dr03EcalRecHitSumEt/p4.Pt < 0.06 && dr03HcalTowerSumEt/p4.Pt  < 0.03 )"
+    " && ( dr03TkSumPt/p4.Pt <0.05 && dr03EcalRecHitSumEt/p4.Pt < 0.06 && dr03HcalRecHitSumEt/p4.Pt  < 0.03 )"
     " && (sigmaIetaIeta<0.03)"
     " && ( -0.7<deltaPhiSuperClusterTrackAtVtx<0.7 )"
     " && ( -0.009<deltaEtaSuperClusterTrackAtVtx<0.009 )"
@@ -247,14 +247,14 @@ process.PassingWP85.cut = cms.string(
     process.goodElectrons.cut.value() +
     " && (gsfTrack.hitPattern().numberOfLostHits(\'MISSING_INNER_HITS\') == 0 && !(-0.02<convDist<0.02 && -0.02<convDcot<0.02))"
     " && ((isEB"
-    " && ( dr03TkSumPt/p4.Pt <0.09 && dr03EcalRecHitSumEt/p4.Pt < 0.08 && dr03HcalTowerSumEt/p4.Pt  < 0.1 )"
+    " && ( dr03TkSumPt/p4.Pt <0.09 && dr03EcalRecHitSumEt/p4.Pt < 0.08 && dr03HcalRecHitSumEt/p4.Pt  < 0.1 )"
     " && (sigmaIetaIeta<0.01)"
     " && ( -0.6<deltaPhiSuperClusterTrackAtVtx<0.6 )"
     " && ( -0.006<deltaEtaSuperClusterTrackAtVtx<0.006 )"
     " && (hadronicOverEm<0.04)"
     ")"
     " || (isEE"
-    " && ( dr03TkSumPt/p4.Pt <0.05 && dr03EcalRecHitSumEt/p4.Pt < 0.05 && dr03HcalTowerSumEt/p4.Pt  < 0.025 )"
+    " && ( dr03TkSumPt/p4.Pt <0.05 && dr03EcalRecHitSumEt/p4.Pt < 0.05 && dr03HcalRecHitSumEt/p4.Pt  < 0.025 )"
     " && (sigmaIetaIeta<0.03)"
     " && ( -0.04<deltaPhiSuperClusterTrackAtVtx<0.04 )"
     " && ( -0.007<deltaEtaSuperClusterTrackAtVtx<0.007 )"
@@ -266,14 +266,14 @@ process.PassingWP80.cut = cms.string(
     process.goodElectrons.cut.value() +
     " && (gsfTrack.hitPattern().numberOfLostHits(\'MISSING_INNER_HITS\') == 0 && !(-0.02<convDist<0.02 && -0.02<convDcot<0.02))"
     " && ((isEB"
-    " && ( dr03TkSumPt/p4.Pt <0.09 && dr03EcalRecHitSumEt/p4.Pt < 0.07 && dr03HcalTowerSumEt/p4.Pt  < 0.1 )"
+    " && ( dr03TkSumPt/p4.Pt <0.09 && dr03EcalRecHitSumEt/p4.Pt < 0.07 && dr03HcalRecHitSumEt/p4.Pt  < 0.1 )"
     " && (sigmaIetaIeta<0.01)"
     " && ( -0.06<deltaPhiSuperClusterTrackAtVtx<0.06 )"
     " && ( -0.004<deltaEtaSuperClusterTrackAtVtx<0.004 )"
     " && (hadronicOverEm<0.04)"
     ")"
     " || (isEE"
-    " && ( dr03TkSumPt/p4.Pt <0.04 && dr03EcalRecHitSumEt/p4.Pt < 0.05 && dr03HcalTowerSumEt/p4.Pt  < 0.025 )"
+    " && ( dr03TkSumPt/p4.Pt <0.04 && dr03EcalRecHitSumEt/p4.Pt < 0.05 && dr03HcalRecHitSumEt/p4.Pt  < 0.025 )"
     " && (sigmaIetaIeta<0.03)"
     " && ( -0.03<deltaPhiSuperClusterTrackAtVtx<0.03 )"
     " && ( -0.007<deltaEtaSuperClusterTrackAtVtx<0.007 )"
@@ -285,14 +285,14 @@ process.PassingWP70.cut = cms.string(
     process.goodElectrons.cut.value() +
     " && (gsfTrack.hitPattern().numberOfLostHits(\'MISSING_INNER_HITS\') == 0 && !(-0.02<convDist<0.02 && -0.02<convDcot<0.02))"
     " && ((isEB"
-    " && ( dr03TkSumPt/p4.Pt <0.05 && dr03EcalRecHitSumEt/p4.Pt < 0.06 && dr03HcalTowerSumEt/p4.Pt  < 0.03 )"
+    " && ( dr03TkSumPt/p4.Pt <0.05 && dr03EcalRecHitSumEt/p4.Pt < 0.06 && dr03HcalRecHitSumEt/p4.Pt  < 0.03 )"
     " && (sigmaIetaIeta<0.01)"
     " && ( -0.03<deltaPhiSuperClusterTrackAtVtx<0.03 )"
     " && ( -0.004<deltaEtaSuperClusterTrackAtVtx<0.004 )"
     " && (hadronicOverEm<0.025)"
     ")"
     " || (isEE"
-    " && ( dr03TkSumPt/p4.Pt <0.025 && dr03EcalRecHitSumEt/p4.Pt < 0.025 && dr03HcalTowerSumEt/p4.Pt  < 0.02 )"
+    " && ( dr03TkSumPt/p4.Pt <0.025 && dr03EcalRecHitSumEt/p4.Pt < 0.025 && dr03HcalRecHitSumEt/p4.Pt  < 0.02 )"
     " && (sigmaIetaIeta<0.03)"
     " && ( -0.02<deltaPhiSuperClusterTrackAtVtx<0.02 )"
     " && ( -0.005<deltaEtaSuperClusterTrackAtVtx<0.005 )"
@@ -304,14 +304,14 @@ process.PassingWP60.cut = cms.string(
     process.goodElectrons.cut.value() +
     " && (gsfTrack.hitPattern().numberOfLostHits(\'MISSING_INNER_HITS\') == 0 && !(-0.02<convDist<0.02 && -0.02<convDcot<0.02))"
     " && ((isEB"
-    " && ( dr03TkSumPt/p4.Pt <0.04 && dr03EcalRecHitSumEt/p4.Pt < 0.04 && dr03HcalTowerSumEt/p4.Pt  < 0.03 )"
+    " && ( dr03TkSumPt/p4.Pt <0.04 && dr03EcalRecHitSumEt/p4.Pt < 0.04 && dr03HcalRecHitSumEt/p4.Pt  < 0.03 )"
     " && (sigmaIetaIeta<0.01)"
     " && ( -0.025<deltaPhiSuperClusterTrackAtVtx<0.025 )"
     " && ( -0.004<deltaEtaSuperClusterTrackAtVtx<0.004 )"
     " && (hadronicOverEm<0.025)"
     ")"
     " || (isEE"
-    " && ( dr03TkSumPt/p4.Pt <0.025 && dr03EcalRecHitSumEt/p4.Pt < 0.02 && dr03HcalTowerSumEt/p4.Pt  < 0.02 )"
+    " && ( dr03TkSumPt/p4.Pt <0.025 && dr03EcalRecHitSumEt/p4.Pt < 0.02 && dr03HcalRecHitSumEt/p4.Pt  < 0.02 )"
     " && (sigmaIetaIeta<0.03)"
     " && ( -0.02<deltaPhiSuperClusterTrackAtVtx<0.02 )"
     " && ( -0.005<deltaEtaSuperClusterTrackAtVtx<0.005 )"
@@ -818,7 +818,7 @@ ProbeVariablesToStore = cms.PSet(
     ## isolation 
     probe_gsfEle_trackiso = cms.string("dr03TkSumPt"),
     probe_gsfEle_ecaliso  = cms.string("dr03EcalRecHitSumEt"),
-    probe_gsfEle_hcaliso  = cms.string("dr03HcalTowerSumEt"),
+    probe_gsfEle_hcaliso  = cms.string("dr03HcalRecHitSumEt"),
     ## classification, location, etc.    
     probe_gsfEle_classification = cms.string("classification"),
     probe_gsfEle_numberOfBrems  = cms.string("numberOfBrems"),     
@@ -896,7 +896,7 @@ TagVariablesToStore = cms.PSet(
     ## isolation 
     gsfEle_trackiso = cms.string("dr03TkSumPt"),
     gsfEle_ecaliso  = cms.string("dr03EcalRecHitSumEt"),
-    gsfEle_hcaliso  = cms.string("dr03HcalTowerSumEt"),
+    gsfEle_hcaliso  = cms.string("dr03HcalRecHitSumEt"),
     ## classification, location, etc.    
     gsfEle_classification = cms.string("classification"),
     gsfEle_numberOfBrems  = cms.string("numberOfBrems"),     
@@ -1093,7 +1093,7 @@ process.PhotonToGsfElectron.variables.probe_dRjet = cms.InputTag("PhotonDRToNear
 process.PhotonToGsfElectron.variables.probe_nJets = cms.InputTag("JetMultiplicityInPhotonEvents")
 process.PhotonToGsfElectron.variables.probe_trackiso = cms.string("trkSumPtHollowConeDR03")
 process.PhotonToGsfElectron.variables.probe_ecaliso = cms.string("ecalRecHitSumEtConeDR03")
-process.PhotonToGsfElectron.variables.probe_hcaliso = cms.string("hcalTowerSumEtConeDR03")
+process.PhotonToGsfElectron.variables.probe_hcaliso = cms.string("hcalRecHitSumEtConeDR03")
 process.PhotonToGsfElectron.variables.probe_HoverE  = cms.string("hadronicOverEm")
 process.PhotonToGsfElectron.variables.probe_sigmaIetaIeta = cms.string("sigmaIetaIeta")
 process.PhotonToGsfElectron.variables.probe_dist = cms.InputTag("PhotonConvRejVars","dist")

@@ -114,7 +114,7 @@ namespace pat {
     float ecalIso() const { return ecalRecHitSumEtConeDR04(); }
     /// Returns summed Et in a cone of deltaR<0.4 calculated
     /// from caloTowers
-    float hcalIso() const { return hcalTowerSumEtConeDR04(); }
+    float hcalIso() const { return hcalRecHitSumEtConeDR04(); }
     /// Returns the calorimeter isolation combined from ecal
     /// and hcal
     float caloIso() const { return ecalIso() + hcalIso(); }

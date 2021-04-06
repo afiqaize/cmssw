@@ -75,7 +75,7 @@ void ElectronIdMVABased::produce(edm::StreamID, edm::Event& iEvent, const edm::E
   for (reco::GsfElectronCollection::const_iterator egIter = egCandidates.begin(); egIter != egCandidates.end();
        ++egIter) {
     double mvaVal = mvaID_->mva(*egIter, nVtx);
-    double isoDr03 = egIter->dr03TkSumPt() + egIter->dr03EcalRecHitSumEt() + egIter->dr03HcalTowerSumEt();
+    double isoDr03 = egIter->dr03TkSumPt() + egIter->dr03EcalRecHitSumEt() + egIter->dr03HcalRecHitSumEt();
     double eleEta = fabs(egIter->eta());
     if (eleEta <= etaEBEE && mvaVal > thresholdBarrel && isoDr03 < thresholdIsoBarrel) {
       mvaElectrons->push_back(*egIter);

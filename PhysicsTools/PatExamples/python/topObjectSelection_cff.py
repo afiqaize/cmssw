@@ -51,7 +51,7 @@ vetoElecs = selectedPatElectrons.clone(
     cut =
     'et > 15. &'
     'abs(eta) < 2.5 &'
-    '(dr03TkSumPt+dr03EcalRecHitSumEt+dr03HcalTowerSumEt)/et <  0.2'
+    '(dr03TkSumPt+dr03EcalRecHitSumEt+dr03HcalRecHitSumEt)/et <  0.2'
  )
 
 from PhysicsTools.PatAlgos.selectionLayer1.jetSelector_cfi import *

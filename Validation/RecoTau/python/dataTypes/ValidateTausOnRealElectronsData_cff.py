@@ -50,7 +50,7 @@ trackElectrons = cms.EDFilter(
 isolatedElectrons = cms.EDFilter(
     "TauValElectronSelector",
     src = cms.InputTag('trackElectrons'),
-    cut = cms.string("(isEB & (dr04TkSumPt/pt + max(0.,dr04EcalRecHitSumEt-2.)/pt + dr04HcalTowerSumEt/pt < 0.10)) | (isEE & (dr04TkSumPt/pt + dr04EcalRecHitSumEt/pt + dr04HcalTowerSumEt/pt < 0.09))"),
+    cut = cms.string("(isEB & (dr04TkSumPt/pt + max(0.,dr04EcalRecHitSumEt-2.)/pt + dr04HcalRecHitSumEt/pt < 0.10)) | (isEE & (dr04TkSumPt/pt + dr04EcalRecHitSumEt/pt + dr04HcalRecHitSumEt/pt < 0.09))"),
     filter = cms.bool(False)
 	)
 

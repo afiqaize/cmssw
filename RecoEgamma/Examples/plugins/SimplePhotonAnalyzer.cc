@@ -325,7 +325,7 @@ void SimplePhotonAnalyzer::analyze(const edm::Event& evt, const edm::EventSetup&
         float sigmaIetaIeta = matchingPho.sigmaIetaIeta();
         float hOverE = matchingPho.hadronicOverEm();
         float ecalIso = matchingPho.ecalRecHitSumEtConeDR04();
-        float hcalIso = matchingPho.hcalTowerSumEtConeDR04();
+        float hcalIso = matchingPho.hcalRecHitSumEtConeDR04();
         float trkIso = matchingPho.trkSumPtSolidConeDR04();
 
         h1_pho_E_->Fill(photonE);

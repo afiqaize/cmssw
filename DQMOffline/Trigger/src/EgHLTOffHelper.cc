@@ -282,8 +282,8 @@ void OffHelper::fillIsolData(const reco::GsfElectron& ele, OffEle::IsolData& iso
   isolData.ptTrks = ele.dr03TkSumPt();
   isolData.nrTrks = 999;  //no longer supported
   isolData.em = ele.dr03EcalRecHitSumEt();
-  isolData.hadDepth1 = ele.dr03HcalDepth1TowerSumEt();
-  isolData.hadDepth2 = ele.dr03HcalDepth2TowerSumEt();
+  isolData.hadDepth1 = ele.dr03HcalRecHitSumEt(1);
+  isolData.hadDepth2 = ele.dr03HcalRecHitSumEt(2);
 
   //now time to do the HLT algos
   if (calHLTHcalIsol_)
@@ -454,7 +454,7 @@ void OffHelper::fillIsolData(const reco::Photon& pho, OffPho::IsolData& isolData
   isolData.nrTrks = pho.nTrkHollowConeDR03();
   isolData.ptTrks = pho.trkSumPtHollowConeDR03();
   isolData.em = pho.ecalRecHitSumEtConeDR03();
-  isolData.had = pho.hcalTowerSumEtConeDR03();
+  isolData.had = pho.hcalRecHitSumEtConeDR03();
 
   //now calculate hlt algos
   if (calHLTHcalIsol_)

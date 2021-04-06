@@ -403,7 +403,7 @@ void SusyDQM<Mu, Ele, Jet, Met>::analyze(const edm::Event& evt, const edm::Event
     hRAL_eta_elecs_->Fill(ele_i->eta());
     hRAL_phi_elecs_->Fill(ele_i->phi());
 
-    hRAL_Iso_elecs_->Fill(ele_i->dr03TkSumPt() + ele_i->dr03EcalRecHitSumEt() + ele_i->dr03HcalTowerSumEt());
+    hRAL_Iso_elecs_->Fill(ele_i->dr03TkSumPt() + ele_i->dr03EcalRecHitSumEt() + ele_i->dr03HcalRecHitSumEt());
 
     // Electron electron pairs
     for (typename std::vector<Ele>::const_iterator ele_j = elecs->begin(); ele_j != elecs->end(); ++ele_j) {

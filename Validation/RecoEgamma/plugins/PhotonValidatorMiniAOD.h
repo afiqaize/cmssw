@@ -76,8 +76,8 @@ private:
   MonitorElement* h_hOverE_[3][3];
   MonitorElement* h_newhOverE_[3][3];
   MonitorElement* h_ecalRecHitSumEtConeDR04_[3][3];
-  MonitorElement* h_hcalTowerSumEtConeDR04_[3][3];
-  MonitorElement* h_hcalTowerBcSumEtConeDR04_[3][3];
+  MonitorElement* h_hcalRecHitSumEtConeDR04_[3][3];
+  MonitorElement* h_hcalRecHitBcSumEtConeDR04_[3][3];
   MonitorElement* h_isoTrkSolidConeDR04_[3][3];
   MonitorElement* h_nTrkSolidConeDR04_[3][3];
 

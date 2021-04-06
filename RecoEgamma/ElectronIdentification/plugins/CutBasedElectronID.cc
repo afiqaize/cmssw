@@ -134,7 +134,7 @@ double CutBasedElectronID::cicSelection(const reco::GsfElectron* electron,
   int mishits = electron->gsfTrack()->missingInnerHits();
   double tkIso = electron->dr03TkSumPt();
   double ecalIso = electron->dr04EcalRecHitSumEt();
-  double hcalIso = electron->dr04HcalTowerSumEt();
+  double hcalIso = electron->dr04HcalRecHitSumEt();
 
   if (version_ == "V00") {
     sigmaee = electron->sigmaEtaEta();  //sqrt(vCov[0]);
@@ -453,9 +453,9 @@ double CutBasedElectronID::robustSelection(const reco::GsfElectron* electron,
   double tkIso = electron->dr03TkSumPt();
   double ecalIso = electron->dr04EcalRecHitSumEt();
   double ecalIsoPed = (electron->isEB()) ? std::max(0., ecalIso - 1.) : ecalIso;
-  double hcalIso = electron->dr04HcalTowerSumEt();
-  double hcalIso1 = electron->dr04HcalDepth1TowerSumEt();
-  double hcalIso2 = electron->dr04HcalDepth2TowerSumEt();
+  double hcalIso = electron->dr04HcalRecHitSumEt();
+  double hcalIso1 = electron->dr04HcalRecHitSumEt(1);
+  double hcalIso2 = electron->dr04HcalRecHitSumEt(2);
 
   if (version_ == "V00") {
     sigmaee = electron->sigmaEtaEta();
@@ -478,9 +478,9 @@ double CutBasedElectronID::robustSelection(const reco::GsfElectron* electron,
   if (version_ == "V04" or version_ == "V05") {
     ecalIso = electron->dr03EcalRecHitSumEt();
     ecalIsoPed = (electron->isEB()) ? std::max(0., ecalIso - 1.) : ecalIso;
-    hcalIso = electron->dr03HcalTowerSumEt();
-    hcalIso1 = electron->dr03HcalDepth1TowerSumEt();
-    hcalIso2 = electron->dr03HcalDepth2TowerSumEt();
+    hcalIso = electron->dr03HcalRecHitSumEt();
+    hcalIso1 = electron->dr03HcalRecHitSumEt(1);
+    hcalIso2 = electron->dr03HcalRecHitSumEt(2);
   }
 
   if (version_ == "V05") {

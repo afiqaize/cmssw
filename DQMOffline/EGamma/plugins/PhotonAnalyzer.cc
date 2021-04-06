@@ -1693,26 +1693,26 @@ void PhotonAnalyzer::analyze(const edm::Event& e, const edm::EventSetup& esup) {
 
         ///////
 
-        fill2DHistoVector(h_hcalSum_, aPho->hcalTowerSumEtConeDR04(), cut, type);
+        fill2DHistoVector(h_hcalSum_, aPho->hcalRecHitSumEtConeDR04(), cut, type);
         if (aPho->isEB()) {
-          fill2DHistoVector(h_hcalSumEBarrel_, aPho->hcalTowerSumEtConeDR04(), cut, type);
+          fill2DHistoVector(h_hcalSumEBarrel_, aPho->hcalRecHitSumEtConeDR04(), cut, type);
         }
         if (aPho->isEE()) {
-          fill2DHistoVector(h_hcalSumEEndcap_, aPho->hcalTowerSumEtConeDR04(), cut, type);
+          fill2DHistoVector(h_hcalSumEEndcap_, aPho->hcalRecHitSumEtConeDR04(), cut, type);
         }
         if (standAlone_)
-          fill2DHistoVector(h_hcalSumVsEta_, aPho->eta(), aPho->hcalTowerSumEtConeDR04(), cut, type);
-        fill2DHistoVector(p_hcalSumVsEta_, aPho->eta(), aPho->hcalTowerSumEtConeDR04(), cut, type);
+          fill2DHistoVector(h_hcalSumVsEta_, aPho->eta(), aPho->hcalRecHitSumEtConeDR04(), cut, type);
+        fill2DHistoVector(p_hcalSumVsEta_, aPho->eta(), aPho->hcalRecHitSumEtConeDR04(), cut, type);
         if (standAlone_)
-          fill2DHistoVector(h_hcalSumVsEt_, aPho->et(), aPho->hcalTowerSumEtConeDR04(), cut, type);
-        fill3DHistoVector(p_hcalSumVsEt_, aPho->et(), aPho->hcalTowerSumEtConeDR04(), cut, type, part);
+          fill2DHistoVector(h_hcalSumVsEt_, aPho->et(), aPho->hcalRecHitSumEtConeDR04(), cut, type);
+        fill3DHistoVector(p_hcalSumVsEt_, aPho->et(), aPho->hcalRecHitSumEtConeDR04(), cut, type, part);
 
         fill3DHistoVector(h_hOverE_, aPho->hadronicOverEm(), cut, type, part);
         fill2DHistoVector(p_hOverEVsEta_, aPho->eta(), aPho->hadronicOverEm(), cut, type);
         fill2DHistoVector(p_hOverEVsEt_, aPho->et(), aPho->hadronicOverEm(), cut, type);
 
-        fill3DHistoVector(h_h1OverE_, aPho->hadronicDepth1OverEm(), cut, type, part);
-        fill3DHistoVector(h_h2OverE_, aPho->hadronicDepth2OverEm(), cut, type, part);
+        fill3DHistoVector(h_h1OverE_, aPho->hadronicOverEm(1), cut, type, part);
+        fill3DHistoVector(h_h2OverE_, aPho->hadronicOverEm(2), cut, type, part);
 
         // filling pf isolation variables
         if (aPho->isEB()) {
@@ -2081,7 +2081,7 @@ bool PhotonAnalyzer::photonSelection(const reco::Photon* pho) {
   if (pho->isEBEEGap())
     result = false;
 
-  double EtCorrHcalIso = pho->hcalTowerSumEtConeDR03() - 0.005 * pho->pt();
+  double EtCorrHcalIso = pho->hcalRecHitSumEtConeDR03() - 0.005 * pho->pt();
   double EtCorrTrkIso = pho->trkSumPtHollowConeDR03() - 0.002 * pho->pt();
 
   if (pho->r9() <= 0.9) {

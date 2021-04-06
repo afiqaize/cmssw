@@ -111,7 +111,7 @@ void EcalZmassTask::analyze(const edm::Event &iEvent, const edm::EventSetup &iSe
     // Define Isolation variables
     double IsoTrk = (recoElectron->dr03TkSumPt() / recoElectron->et());
     double IsoEcal = (recoElectron->dr03EcalRecHitSumEt() / recoElectron->et());
-    double IsoHcal = (recoElectron->dr03HcalTowerSumEt() / recoElectron->et());
+    double IsoHcal = (recoElectron->dr03HcalRecHitSumEt() / recoElectron->et());
     double HE = (recoElectron->hcalOverEcal());
 
     // Define ID variables

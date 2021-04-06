@@ -1069,16 +1069,16 @@ void ZToMuMuGammaAnalyzer::analyze(const edm::Event& e, const edm::EventSetup& e
         h_trackPtSumHollow_[iDet]->Fill(aPho->trkSumPtSolidConeDR04());
         //CALORIMETER ISOLATION
         h_ecalSum_[0]->Fill(aPho->ecalRecHitSumEtConeDR04());
-        h_hcalSum_[0]->Fill(aPho->hcalTowerSumEtConeDR04());
+        h_hcalSum_[0]->Fill(aPho->hcalRecHitSumEtConeDR04());
         h_hOverE_[0]->Fill(aPho->hadTowOverEm());
-        h_h1OverE_[0]->Fill(aPho->hadTowDepth1OverEm());
-        h_h2OverE_[0]->Fill(aPho->hadTowDepth2OverEm());
+        h_h1OverE_[0]->Fill(aPho->hadTowOverEm(1));
+        h_h2OverE_[0]->Fill(aPho->hadTowOverEm(2));
         h_newhOverE_[0]->Fill(aPho->hadTowOverEm());
         h_ecalSum_[iDet]->Fill(aPho->ecalRecHitSumEtConeDR04());
-        h_hcalSum_[iDet]->Fill(aPho->hcalTowerSumEtConeDR04());
+        h_hcalSum_[iDet]->Fill(aPho->hcalRecHitSumEtConeDR04());
         h_hOverE_[iDet]->Fill(aPho->hadTowOverEm());
-        h_h1OverE_[iDet]->Fill(aPho->hadTowDepth1OverEm());
-        h_h2OverE_[iDet]->Fill(aPho->hadTowDepth2OverEm());
+        h_h1OverE_[iDet]->Fill(aPho->hadTowOverEm(1));
+        h_h2OverE_[iDet]->Fill(aPho->hadTowOverEm(2));
         h_newhOverE_[iDet]->Fill(aPho->hadTowOverEm());
         // Isolation from particle flow
         h_chHadIso_[0]->Fill(aPho->chargedHadronIso());
@@ -1200,8 +1200,8 @@ void ZToMuMuGammaAnalyzer::analyze(const edm::Event& e, const edm::EventSetup& e
           //
           p_ecalSumVsEt_[iDet]->Fill(aPho->et(), aPho->ecalRecHitSumEtConeDR04());
           p_ecalSumVsEta_[0]->Fill(aPho->eta(), aPho->ecalRecHitSumEtConeDR04());
-          p_hcalSumVsEt_[iDet]->Fill(aPho->et(), aPho->hcalTowerSumEtConeDR04());
-          p_hcalSumVsEta_[0]->Fill(aPho->eta(), aPho->hcalTowerSumEtConeDR04());
+          p_hcalSumVsEt_[iDet]->Fill(aPho->et(), aPho->hcalRecHitSumEtConeDR04());
+          p_hcalSumVsEta_[0]->Fill(aPho->eta(), aPho->hcalRecHitSumEtConeDR04());
           p_hOverEVsEt_[iDet]->Fill(aPho->et(), aPho->hadTowOverEm());
           p_hOverEVsEta_[0]->Fill(aPho->eta(), aPho->hadTowOverEm());
         }
@@ -1232,8 +1232,8 @@ void ZToMuMuGammaAnalyzer::analyze(const edm::Event& e, const edm::EventSetup& e
           //CALORIMETER ISOLATION
           h2_ecalSumVsEt_[iDet]->Fill(aPho->et(), aPho->ecalRecHitSumEtConeDR04());
           h2_ecalSumVsEta_[0]->Fill(aPho->eta(), aPho->ecalRecHitSumEtConeDR04());
-          h2_hcalSumVsEt_[iDet]->Fill(aPho->et(), aPho->hcalTowerSumEtConeDR04());
-          h2_hcalSumVsEta_[0]->Fill(aPho->eta(), aPho->hcalTowerSumEtConeDR04());
+          h2_hcalSumVsEt_[iDet]->Fill(aPho->et(), aPho->hcalRecHitSumEtConeDR04());
+          h2_hcalSumVsEta_[0]->Fill(aPho->eta(), aPho->hcalRecHitSumEtConeDR04());
         }
       }  //end photon loop
 
@@ -1303,7 +1303,7 @@ bool ZToMuMuGammaAnalyzer::photonSelection(const reco::PhotonRef& pho) {
   if (pho->isEBEEGap())
     result = false;
 
-  double EtCorrHcalIso = pho->hcalTowerSumEtConeDR03() - 0.005 * pho->pt();
+  double EtCorrHcalIso = pho->hcalRecHitSumEtConeDR03() - 0.005 * pho->pt();
   double EtCorrTrkIso = pho->trkSumPtHollowConeDR03() - 0.002 * pho->pt();
 
   if (pho->r9() <= 0.9) {

@@ -49,7 +49,7 @@ bool EgammaCutBasedEleId::PassTriggerCuts(TriggerWorkingPoint triggerWorkingPoin
   float hoe = ele.hadronicOverEm();
   float trackIso = ele.dr03TkSumPt();
   float ecalIso = ele.dr03EcalRecHitSumEt();
-  float hcalIso = ele.dr03HcalTowerSumEt();
+  float hcalIso = ele.dr03HcalRecHitSumEt();
 
   // test the trigger cuts
   return EgammaCutBasedEleId::PassTriggerCuts(
