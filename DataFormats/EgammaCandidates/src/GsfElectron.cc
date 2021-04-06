@@ -175,8 +175,10 @@ void GsfElectron::setCorrectedEcalEnergy(float newEnergy) {
   math::XYZTLorentzVectorD momentum = p4();
   momentum *= newEnergy / momentum.e();
   setP4(momentum);
-  showerShape_.hcalDepth1OverEcal *= corrections_.correctedEcalEnergy / newEnergy;
-  showerShape_.hcalDepth2OverEcal *= corrections_.correctedEcalEnergy / newEnergy;
+  for (size_t id = 0; id < showerShape_.hcalOverEcal.size(); ++id) {
+    showerShape_.hcalOverEcal[id] *= corrections_.correctedEcalEnergy / newEnergy;
+    showerShape_.hcalOverEcalBc[id] *= corrections_.correctedEcalEnergy / newEnergy;
+  }
   trackClusterMatching_.eSuperClusterOverP *= newEnergy / corrections_.correctedEcalEnergy;
   corrections_.correctedEcalEnergyError *= newEnergy / corrections_.correctedEcalEnergy;
   corrections_.correctedEcalEnergy = newEnergy;
